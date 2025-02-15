@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 const Carousel = ({images}) => {
   const [slide, setSlide] = useState(0);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setSlide(slide === images.length - 1 ? 0 : slide + 1)
-    }, 7000);
-  },)
+  // useEffect(() => {
+  //   slideChange()
+  // }, [])
+
+  setTimeout(() => {
+    setSlide(slide === images.length - 1 ? 0 : slide + 1);
+  }, 7000);
 
   return (
     <div className="w-full h-full flex">
