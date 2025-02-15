@@ -17,7 +17,7 @@ const Navbar = () => {
         <ul className="flex items-center justify-between lg:justify-center h-full">
 
           {/* Left Side */}
-          <li className="flex-1 flex items-center">
+          <li className="lg:flex-1 flex items-center">
             {/* Desktop Screens UI */}
             <button
               onClick={() => setMenuActive(true)} 
@@ -42,7 +42,7 @@ const Navbar = () => {
           <NavLink to='/' className="font-semibold text-[6vw] lg:text-[1.5vw] tracking-normal h-full cursor-pointer">{NAVBAR_CONTENT.logo}</NavLink>
 
           {/* Right Side */}
-          <li className="flex-1">
+          <li className="lg:flex-1">
             <ul className="flex items-center justify-self-end gap-[3.8vw] lg:gap-[2.5vw] font-semibold text-xl tracking-wide text-black">
 
               <button className="hidden lg:block py-[0.3vw] cursor-pointer relative group"> 
