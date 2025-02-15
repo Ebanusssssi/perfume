@@ -5,8 +5,8 @@ const Steps = () => {
     <section className="w-full h-fit flex flex-col items-center justify-center gap-[8vw] lg:gap-0 relative py-[8vw] px-[8vw] lg:py-0 lg:px-0 bg-[#F5F3E7]">
 
       {/* Video */}
-      <div className="h-[80vw] w-full lg:w-full lg:h-full flex items-center justify-center overflow-hidden rounded-[5vw] lg:rounded-none">
-        <video autoPlay muted loop media="(min-width: 52em)" type="video/mp4" src={HOME_STEPS.video} className="h-full lg:h-fit w-full object-cover object-right lg:object-center pointer-events-none">
+      <div className="h-[80vw] w-full lg:w-full lg:h-full flex items-center justify-center overflow-hidden rounded-[5vw] lg:rounded-none pointer-events-none">
+        <video autoPlay muted loop media="(min-width: 52em)" type="video/mp4" src={HOME_STEPS.video} className="h-full lg:h-fit w-full object-cover object-right lg:object-center">
           {/* <source  /> */}
         </video>
       </div>
