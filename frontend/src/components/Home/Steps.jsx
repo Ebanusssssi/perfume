@@ -6,8 +6,8 @@ const Steps = () => {
 
       {/* Video */}
       <div className="h-[80vw] w-full lg:w-full lg:h-full flex items-center justify-center overflow-hidden rounded-[5vw] lg:rounded-none">
-        <video autoPlay muted loop type="video/mp4" src={HOME_STEPS.video} className="h-full lg:h-fit w-full object-cover object-right lg:object-center">
-          {/* <source   media="(min-width: 52em)"  /> */}
+        <video autoPlay muted loop media="(min-width: 52em)" type="video/mp4" src={HOME_STEPS.video} className="h-full lg:h-fit w-full object-cover object-right lg:object-center">
+          {/* <source  /> */}
         </video>
       </div>
 
