@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <header className={`${hideNav ? 'hideNavbar' : ''} h-fit px-[4.7vw] py-[4.5vw] lg:py-[1.5vw] bg-white sticky w-full top-0 z-40 transition-all duration-300 ease-in-out`}>
       <nav className="h-full">
-        <ul className="flex items-center justify-center h-full">
+        <ul className="flex items-center justify-between lg:justify-center h-full">
 
           {/* Left Side */}
           <li className="flex-1 flex items-center">
