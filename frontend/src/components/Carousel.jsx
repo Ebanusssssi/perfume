@@ -5,16 +5,17 @@ const Carousel = ({images}) => {
   const [slide, setSlide] = useState(0);
 
   useEffect(() => {
-    console.log('effect');
-    
     const timer = setTimeout(() => {
-      console.log('timer');
-      
-      setSlide((prevSlide) => (prevSlide === images.length - 1 ? 0 : prevSlide + 1));
+      setSlide((prevSlide) => {
+        // Переход к следующему слайду, если текущий последний, возвращаем на первый
+        return prevSlide === images.length - 1 ? 0 : prevSlide + 1;
+      });
     }, 7000); // Интервал переключения слайдов 7 секунд
 
-    return () => clearTimeout(timer); // Очистка таймера при размонтировании компонента
-  }, [slide, images.length]); // Зависимость от слайда и длины массива изображений
+    // Очистка таймера при размонтировании или изменении состояния
+    return () => clearTimeout(timer);
+  }, [slide, images.length]); // Зависимость от состояния слайда и количества изображений
+
 
   return (
     <div className="w-full h-full flex">
