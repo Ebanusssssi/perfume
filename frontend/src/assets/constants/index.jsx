@@ -83,8 +83,20 @@ import saab from '../saabEllie.webp'
 import blossom from '../blossom.webp'
 import homme from '../homme.webp'
 import coach from '../coach.webp'
-
 import star from '../star.svg'
+
+// SOCIAL IMAGES
+import social1 from '../social1.webp'
+import social2 from '../social2.webp'
+import social3 from '../social3.webp'
+import social4 from '../social4.webp'
+import social5 from '../social5.webp'
+
+// FOOTER IMAGES
+import ideal from '../ideal.webp'
+import mastercard from '../mastercard.svg'
+import visa from '../visa.svg'
+import paypal from '../paypal.svg'
 
 // ICONS
 import { TbMenu2 } from "react-icons/tb";
@@ -95,10 +107,17 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import { TiDeleteOutline } from "react-icons/ti";
 import { PiBagBold } from "react-icons/pi";
 import { RxCross2 } from "react-icons/rx";
+import { MdInfoOutline } from "react-icons/md";
+import { FaInstagram } from "react-icons/fa";
+import { FaSquareFacebook } from "react-icons/fa6";
+import { AiFillTikTok } from "react-icons/ai";
 
 
 
 
+
+
+// NAVBAR
 export const NAVBAR_CONTENT = {
   menu: "Menu",
   logo: "parfumado",
@@ -171,7 +190,9 @@ export const HOME_STEPS = {
 export const HOME_PRODUCTS = {
     sectionTitle: "It's time to choose",
     tabsLabels: ["Premium","Niche", "Clean"],
-    // productCards: [1,2,3,4,5,6,7,8,9,10],
+    icons: {
+        info: <MdInfoOutline className="w-full h-full object-cover text-gray-600 text-bold" />,
+      },
     productCards: [
         {
             id: "aaaaq",
@@ -254,26 +275,213 @@ export const HOME_PRODUCTS = {
 
         },
         
-    ]
+    ],
+    productCards2: [
+        {
+            id: "aaaae",
+            image: [terre],
+            title: "Terre d'Hermès Eau de Parfum",
+            brand: "Hermès",
+            star: [star],
+            
+        },
+        {
+            id: "aaaaw",
+            image: [narciso],
+            title: "For Her Eau de Parfum",
+            brand: "Narciso Rodriguez",
+            star: [star],
+            
+        },
+        {
+            id: "aaaar",
+            image: [blue],
+            title: "Dylan Blue",
+            brand: "Versace",
+            star: [star],
+            
+        },
+        {
+            id: "aaaat",
+            image: [declaration],
+            title: "Déclaration EdT",
+            brand: "Cartier",
+            star: [star],
+            
+        },
+        {
+            id: "aaaaq",
+            image: [versace],
+            title: "Bright Crystal",
+            brand: "Versace",
+            star: [star],
 
-    // steps: [
-    //     {
-    //         number: "N°1",
-    //         title: "Start your perfume journey",
-    //         description: "Start your personal perfume journey with the ultimate membership to discover perfumes. Choose from over 550 premium perfumes every month. Discover new personal favorites and wear a perfume that suits you every day.",
-    //     },
-    //     {
-    //         number: "N°2",
-    //         title: "Handy 8ml travel size",
-    //         description: "Your perfume will be delivered to your home for free in a handy 8ml travel size. This way you can experience your perfume for 30 days with 4 sprays per day. Ideal for #onthego.",
-    //     },
-    //     {
-    //         number: "N°3",
-    //         title: "Flexible membership",
-    //         description: "Because we understand that your need for perfume differs every month, the subscription is 100% flexible. You can therefore very easily pause or cancel.",
-    //     },
-    // ],
+        },
+        {
+            id: "aaaay",
+            image: [noir],
+            title: "Bleu Noir For Him",
+            brand: "Narciso Rodriguez",
+            star: [star],
+
+        },
+        {
+            id: "aaaao",
+            image: [homme],
+            title: "L'Eau d'Issey Pour Homme",
+            brand: "Issey Miyake",
+            star: [star],
+
+        },
+        {
+            id: "aaaau",
+            image: [saab],
+            title: "Elie Saab Le Parfum",
+            brand: "Elie Saab",
+            star: [star],
+
+        },
+        {
+            id: "aaaap",
+            image: [coach],
+            title: "Coach Floral",
+            brand: "Coach",
+            star: [star],
+
+        },
+        {
+            id: "aaaai",
+            image: [blossom],
+            title: "Blossom",
+            brand: "Jimmy Choo",
+            star: [star],
+
+        },
+        
+    ],
+    productCards3: [
+        {
+            id: "aaaap",
+            image: [coach],
+            title: "Coach Floral",
+            brand: "Coach",
+            star: [star],
+
+        },
+        {
+            id: "aaaaw",
+            image: [narciso],
+            title: "For Her Eau de Parfum",
+            brand: "Narciso Rodriguez",
+            star: [star],
+            
+        },
+        {
+            id: "aaaao",
+            image: [homme],
+            title: "L'Eau d'Issey Pour Homme",
+            brand: "Issey Miyake",
+            star: [star],
+            
+        },
+        {
+            id: "aaaau",
+            image: [saab],
+            title: "Elie Saab Le Parfum",
+            brand: "Elie Saab",
+            star: [star],
+            
+        },
+        {
+            id: "aaaar",
+            image: [blue],
+            title: "Dylan Blue",
+            brand: "Versace",
+            star: [star],
+            
+        },
+        {
+            id: "aaaat",
+            image: [declaration],
+            title: "Déclaration EdT",
+            brand: "Cartier",
+            star: [star],
+            
+        },
+        {
+            id: "aaaay",
+            image: [noir],
+            title: "Bleu Noir For Him",
+            brand: "Narciso Rodriguez",
+            star: [star],
+            
+        },
+        {
+            id: "aaaaq",
+            image: [versace],
+            title: "Bright Crystal",
+            brand: "Versace",
+            star: [star],
+            
+        },
+        {
+            id: "aaaai",
+            image: [blossom],
+            title: "Blossom",
+            brand: "Jimmy Choo",
+            star: [star],
+            
+        },
+        {
+            id: "aaaae",
+            image: [terre],
+            title: "Terre d'Hermès Eau de Parfum",
+            brand: "Hermès",
+            star: [star],
+            
+        },
+        
+    ],
 }
+export const HOME_SOCIAL = {
+    title: "#parfumado",
+    socialPosts: [
+        {
+            image: social1,
+            href: "#"
+        },
+        {
+            image: social2,
+            href: "#"
+        },
+        {
+            image: social3,
+            href: "#"
+        },
+        {
+            image: social4,
+            href: "#"
+        },
+        {
+            image: social5,
+            href: "#"
+        },
+    ],
+}
+// FOOTER
+export const FOOTER_CONTENT = {
+    topLinks: ["Perfumes", "FAQs", "Delivery Information", "Inspiration", "Our story", "Careers"],
+    socials: {
+        title: "Follow us", 
+        instagram: <FaInstagram className="w-full h-full object-cover text-gray-800" />, 
+        facebook: <FaSquareFacebook className="w-full h-full object-cover text-gray-800" />, 
+        tiktok: <AiFillTikTok className="w-full h-full object-cover text-gray-800" />, 
+    },
+    logo: "parfumado",
+    paymentImages: [ideal, mastercard, visa, paypal],
+    bottomLinks: ["Cookie preferences", "Cookie statement", "Terms & conditions", "Privacy policy"],
+  }
+
 
 export const PRODUCTS = [
   {
