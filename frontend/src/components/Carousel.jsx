@@ -4,17 +4,15 @@ import { useEffect, useState } from "react";
 const Carousel = ({images}) => {
   const [slide, setSlide] = useState(0);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setSlide((prevSlide) => {
-        // Переход к следующему слайду, если текущий последний, возвращаем на первый
-        return prevSlide === images.length - 1 ? 0 : prevSlide + 1;
-      });
-    }, 7000); // Интервал переключения слайдов 7 секунд
+  // Функция для смены слайда
+  const changeSlide = () => {
+    setSlide((prevSlide) => (prevSlide === images.length - 1 ? 0 : prevSlide + 1));
+  };
 
-    // Очистка таймера при размонтировании или изменении состояния
-    return () => clearTimeout(timer);
-  }, [slide, images.length]); // Зависимость от состояния слайда и количества изображений
+  useEffect(() => {
+    const interval = setInterval(changeSlide, 7000); // Смена слайдов каждую 7 секунд
+    return () => clearInterval(interval); // Очистка интервала при размонтировании компонента
+  }, [images.length, slide]); // Делаем зависимость от длины массива изображений`
 
 
   return (
