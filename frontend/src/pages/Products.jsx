@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import ProductItem from "../components/ProductItem";
 import { PRODUCTS_CONTENT } from "../assets/constants";
@@ -6,8 +6,27 @@ import { PRODUCTS_CONTENT } from "../assets/constants";
 const Products = () => {
     const { PRODUCTS } = useContext(ShopContext);
     const [searchValue, setSearchValue] = useState("");
-    const [activeOption, setActiveOption] = useState(null);
+    const [filterProducts, setFilterProducts] = useState([]);
+    const [option, setOption] = useState(null);
     
+    // Toggle Perfume Options (Filter)
+    const toggleOption = (option) => {
+      setOption(option);
+    }
+
+    // Setting Product List Depends on Chosen Option
+    const applyOption = () => {
+      let productsCopy = PRODUCTS.slice();
+      if (option) {
+        productsCopy = productsCopy.filter(item => item.category === option);
+      }
+      setFilterProducts(productsCopy)
+    }
+
+    // Calling Apply Option Function When Option Changed
+    useEffect(() => {
+      applyOption();
+    }, [option])
   
   return (
     <div className="w-full h-fit px-[4.7vw] py-[4.5vw] lg:py-[3vw]">
@@ -40,8 +59,8 @@ const Products = () => {
             {
               PRODUCTS_CONTENT.optionsLabels.map((option, index) => (
                 <button
-                  // onClick={() => activateTab(index)}
-                  onClick={() => setActiveOption(option)}
+                  onClick={() => toggleOption(option)}
+                  value={option}
                   key={index} 
                   className="flex items-start gap-[0.5vw] lg:gap-[0.45vw] cursor-pointer group"
                 >
@@ -52,12 +71,12 @@ const Products = () => {
           </div>
           {/* Picked Option */}
          { 
-          activeOption &&
+          option &&
           <div 
-            onClick={() => setActiveOption(null)}
+            onClick={() => setOption(null)}
             className="flex items-end gap-[1.1vw] lg:gap-[0.3vw] text-white text-[2.5vw] lg:text-[0.7vw] lg:font-light uppercase leading-none bg-black px-[2.5vw] py-[1vw] lg:px-[0.8vw] lg:py-[0.3vw] rounded-full cursor-pointer"
           >
-            <span className="">{activeOption}</span>
+            <span className="">{option}</span>
             <div className="">{PRODUCTS_CONTENT.icons.close}</div>
           </div>
          }
@@ -75,7 +94,7 @@ const Products = () => {
       {/* Products */}
       <div className="grid w-full h-fit grid-cols-2 lg:grid-cols-5 gap-[4.5vw] lg:gap-[2.2vw] py-[4.5vw] lg:py-[2.5vw] lg:border-t border-t-slate-200">
         {
-          PRODUCTS.map((product, index) => (
+          filterProducts.map((product, index) => (
             <ProductItem key={index} id={product._id} image={product.image} title={product.title} brand={product.brand} />
           ))
         }

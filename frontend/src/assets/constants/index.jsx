@@ -83,6 +83,28 @@ import saab from '../saabEllie.webp'
 import blossom from '../blossom.webp'
 import homme from '../homme.webp'
 import coach from '../coach.webp'
+import elisir from '../elisir.webp'
+import orangecrush from '../orangecrush.webp'
+import oud3333 from '../oud3333.webp'
+import cherrypunk from '../cherrypunk.webp'
+import elisiroderose from '../elisiroderose.webp'
+import cashflower from '../cashflower.webp'
+import osmanthus from '../osmanthus.webp'
+import escentric from '../escentric.webp'
+import mountainpepper from '../mountainpepper.webp'
+import n203 from '../n203.webp'
+import n17rose from '../n17rose.webp'
+import sandalwood from '../sandalwood.webp'
+import laundryday from '../laundryday.webp'
+import bergamotdedenim from '../bergamotdedenim.webp'
+import allofme from '../allofme.webp'
+import verbenacytrus from '../verbenacytrus.webp'
+import ambreroomspray from '../ambreroomspray.webp'
+import detoxroomspray from '../detoxroomspray.webp'
+import sunsandroomspray from '../sunsandroomspray.webp'
+import africanhoursroomspray from '../africanhoursroomspray.webp'
+import bestsellerexpset from '../bestsellerexpset.webp'
+
 import star from '../star.svg'
 
 // SOCIAL IMAGES
@@ -490,7 +512,7 @@ export const HOME_SOCIAL = {
 // PRODUCTS PAGE
 export const PRODUCTS_CONTENT ={
     title: "All products",
-    optionsLabels: ["Niche", "Prestige", "Clean", "Other"],
+    optionsLabels: ["Niche", "Premium", "Clean", "Other"],
     icons: {
         close: <RxCross2 className="w-full h-full object-cover object-center" />,
         search: <LuSearch className="w-full h-full object-cover object-center" />,
@@ -501,12 +523,15 @@ export const PRODUCTS_CONTENT ={
 
 
 export const PRODUCTS = [
+
+    // PREMIUM
     {
         _id: "aaaaq",
         image: [versace],
         title: "Bright Crystal",
         brand: "Versace",
         star: [star],
+        category: "Premium",
 
     },
     {
@@ -515,6 +540,7 @@ export const PRODUCTS = [
         title: "For Her Eau de Parfum",
         brand: "Narciso Rodriguez",
         star: [star],
+        category: "Premium",
 
     },
     {
@@ -523,6 +549,7 @@ export const PRODUCTS = [
         title: "Terre d'Hermès Eau de Parfum",
         brand: "Hermès",
         star: [star],
+        category: "Premium",
 
     },
     {
@@ -531,6 +558,7 @@ export const PRODUCTS = [
         title: "Dylan Blue",
         brand: "Versace",
         star: [star],
+        category: "Premium",
 
     },
     {
@@ -539,6 +567,7 @@ export const PRODUCTS = [
         title: "Déclaration EdT",
         brand: "Cartier",
         star: [star],
+        category: "Premium",
 
     },
     {
@@ -547,6 +576,7 @@ export const PRODUCTS = [
         title: "Bleu Noir For Him",
         brand: "Narciso Rodriguez",
         star: [star],
+        category: "Premium",
 
     },
     {
@@ -555,6 +585,7 @@ export const PRODUCTS = [
         title: "Elie Saab Le Parfum",
         brand: "Elie Saab",
         star: [star],
+        category: "Premium",
 
     },
     {
@@ -563,6 +594,7 @@ export const PRODUCTS = [
         title: "Blossom",
         brand: "Jimmy Choo",
         star: [star],
+        category: "Premium",
 
     },
     {
@@ -571,6 +603,7 @@ export const PRODUCTS = [
         title: "L'Eau d'Issey Pour Homme",
         brand: "Issey Miyake",
         star: [star],
+        category: "Premium",
 
     },
     {
@@ -579,406 +612,214 @@ export const PRODUCTS = [
         title: "Coach Floral",
         brand: "Coach",
         star: [star],
+        category: "Premium",
 
     },
+
+    // NICHE
     {
         _id: "aaaaq",
-        image: [versace],
-        title: "Bright Crystal",
-        brand: "Versace",
+        image: [elisir],
+        title: "Érose",
+        brand: "Élisire",
         star: [star],
-
+        category: "Niche",
     },
     {
         _id: "aaaaw",
-        image: [narciso],
-        title: "For Her Eau de Parfum",
-        brand: "Narciso Rodriguez",
+        image: [orangecrush],
+        title: "Orange Crush",
+        brand: "Fugazzi",
         star: [star],
-
+        category: "Niche",
     },
     {
         _id: "aaaae",
-        image: [terre],
-        title: "Terre d'Hermès Eau de Parfum",
-        brand: "Hermès",
+        image: [oud3333],
+        title: "OUD 3333",
+        brand: "Acqua Alpes",
         star: [star],
-
+        category: "Niche",
     },
     {
         _id: "aaaar",
-        image: [blue],
-        title: "Dylan Blue",
-        brand: "Versace",
+        image: [cherrypunk],
+        title: "Cherry Punk",
+        brand: "Room 1015",
         star: [star],
-
+        category: "Niche",
     },
     {
         _id: "aaaat",
-        image: [declaration],
-        title: "Déclaration EdT",
-        brand: "Cartier",
+        image: [elisiroderose],
+        title: "Oderose",
+        brand: "Élisire",
         star: [star],
-
+        category: "Niche",
     },
     {
         _id: "aaaay",
-        image: [noir],
-        title: "Bleu Noir For Him",
-        brand: "Narciso Rodriguez",
+        image: [cashflower],
+        title: "Cash Flower",
+        brand: "Fugazzi",
         star: [star],
-
+        category: "Niche",
     },
     {
         _id: "aaaau",
-        image: [saab],
-        title: "Elie Saab Le Parfum",
-        brand: "Elie Saab",
+        image: [osmanthus],
+        title: "Jasmine / Osmanthus",
+        brand: "EPC",
         star: [star],
-
+        category: "Niche",
     },
+
+    // CLEAN
     {
         _id: "aaaai",
-        image: [blossom],
-        title: "Blossom",
-        brand: "Jimmy Choo",
+        image: [escentric],
+        title: "Escentric 01",
+        brand: "Escentric Molecules",
         star: [star],
+        category: "Clean",
 
     },
     {
         _id: "aaaao",
-        image: [homme],
-        title: "L'Eau d'Issey Pour Homme",
-        brand: "Issey Miyake",
+        image: [mountainpepper],
+        title: "Mountain Pepper",
+        brand: "Korres",
         star: [star],
-
+        category: "Clean",
     },
     {
         _id: "aaaap",
-        image: [coach],
-        title: "Coach Floral",
-        brand: "Coach",
+        image: [n203],
+        title: "203",
+        brand: "Bon Parfumeur",
         star: [star],
-
+        category: "Clean",
     },
     {
         _id: "aaaaq",
-        image: [versace],
-        title: "Bright Crystal",
-        brand: "Versace",
+        image: [n17rose],
+        title: "No.17 Rose Fumée",
+        brand: "Marie-Stella-Maris",
         star: [star],
-
+        category: "Clean",
     },
     {
         _id: "aaaaw",
-        image: [narciso],
-        title: "For Her Eau de Parfum",
-        brand: "Narciso Rodriguez",
+        image: [sandalwood],
+        title: "Sandalwood / Musk",
+        brand: "EPC",
         star: [star],
-
+        category: "Clean",
     },
     {
         _id: "aaaae",
-        image: [terre],
-        title: "Terre d'Hermès Eau de Parfum",
-        brand: "Hermès",
+        image: [laundryday],
+        title: "Laundry Day",
+        brand: "Abel",
         star: [star],
-
+        category: "Clean",
     },
     {
         _id: "aaaar",
-        image: [blue],
-        title: "Dylan Blue",
-        brand: "Versace",
+        image: [bergamotdedenim],
+        title: "Néroli & Bergamote de Denim",
+        brand: "pH fragrances",
         star: [star],
-
+        category: "Clean",
     },
     {
         _id: "aaaat",
-        image: [declaration],
-        title: "Déclaration EdT",
-        brand: "Cartier",
+        image: [allofme],
+        title: "All of Me",
+        brand: "Narciso Rodriguez",
         star: [star],
-
+        category: "Clean",
     },
     {
         _id: "aaaay",
-        image: [noir],
-        title: "Bleu Noir For Him",
-        brand: "Narciso Rodriguez",
+        image: [verbenacytrus],
+        title: "Verbena Citrus",
+        brand: "L'Occitane en Provence",
         star: [star],
-
+        category: "Clean",
     },
+
+    // OTHER
     {
         _id: "aaaau",
-        image: [saab],
-        title: "Elie Saab Le Parfum",
-        brand: "Elie Saab",
+        image: [ambreroomspray],
+        title: "St. Ambre Roomspray",
+        brand: "Parfumado",
         star: [star],
-
+        category: "Other"
     },
     {
         _id: "aaaai",
-        image: [blossom],
-        title: "Blossom",
-        brand: "Jimmy Choo",
+        image: [detoxroomspray],
+        title: "Green Detox Roomspray",
+        brand: "Parfumado",
         star: [star],
-
+        category: "Other"
     },
     {
         _id: "aaaao",
-        image: [homme],
-        title: "L'Eau d'Issey Pour Homme",
-        brand: "Issey Miyake",
+        image: [sunsandroomspray],
+        title: "Sun Sand Blvrd Roomspray",
+        brand: "Parfumado",
         star: [star],
-
+        category: "Other"
     },
     {
         _id: "aaaap",
-        image: [coach],
-        title: "Coach Floral",
-        brand: "Coach",
+        image: [africanhoursroomspray],
+        title: "African Hours Roomspray",
+        brand: "Parfumado",
         star: [star],
-
+        category: "Other"
     },
     {
         _id: "aaaaq",
-        image: [versace],
-        title: "Bright Crystal",
-        brand: "Versace",
+        image: [bestsellerexpset],
+        title: "Bestsellers Exploration Set",
+        brand: "Parfumado",
         star: [star],
-
+        category: "Other"
     },
     {
         _id: "aaaaw",
-        image: [narciso],
-        title: "For Her Eau de Parfum",
-        brand: "Narciso Rodriguez",
+        image: [bestsellerexpset],
+        title: "Woody Exploration Set",
+        brand: "Parfumado",
         star: [star],
-
+        category: "Other"
     },
     {
         _id: "aaaae",
-        image: [terre],
-        title: "Terre d'Hermès Eau de Parfum",
-        brand: "Hermès",
+        image: [bestsellerexpset],
+        title: "Fresh Exploration Set",
+        brand: "Parfumado",
         star: [star],
-
+        category: "Other"
     },
     {
         _id: "aaaar",
-        image: [blue],
-        title: "Dylan Blue",
-        brand: "Versace",
+        image: [bestsellerexpset],
+        title: "Floral Exploration Set",
+        brand: "Parfumado",
         star: [star],
-
+        category: "Other"
     },
     {
         _id: "aaaat",
-        image: [declaration],
-        title: "Déclaration EdT",
-        brand: "Cartier",
+        image: [bestsellerexpset],
+        title: "Amber Exploration Set",
+        brand: "Parfumado",
         star: [star],
-
-    },
-    {
-        _id: "aaaay",
-        image: [noir],
-        title: "Bleu Noir For Him",
-        brand: "Narciso Rodriguez",
-        star: [star],
-
-    },
-    {
-        _id: "aaaau",
-        image: [saab],
-        title: "Elie Saab Le Parfum",
-        brand: "Elie Saab",
-        star: [star],
-
-    },
-    {
-        _id: "aaaai",
-        image: [blossom],
-        title: "Blossom",
-        brand: "Jimmy Choo",
-        star: [star],
-
-    },
-    {
-        _id: "aaaao",
-        image: [homme],
-        title: "L'Eau d'Issey Pour Homme",
-        brand: "Issey Miyake",
-        star: [star],
-
-    },
-    {
-        _id: "aaaap",
-        image: [coach],
-        title: "Coach Floral",
-        brand: "Coach",
-        star: [star],
-
-    },
-    {
-        _id: "aaaaq",
-        image: [versace],
-        title: "Bright Crystal",
-        brand: "Versace",
-        star: [star],
-
-    },
-    {
-        _id: "aaaaw",
-        image: [narciso],
-        title: "For Her Eau de Parfum",
-        brand: "Narciso Rodriguez",
-        star: [star],
-
-    },
-    {
-        _id: "aaaae",
-        image: [terre],
-        title: "Terre d'Hermès Eau de Parfum",
-        brand: "Hermès",
-        star: [star],
-
-    },
-    {
-        _id: "aaaar",
-        image: [blue],
-        title: "Dylan Blue",
-        brand: "Versace",
-        star: [star],
-
-    },
-    {
-        _id: "aaaat",
-        image: [declaration],
-        title: "Déclaration EdT",
-        brand: "Cartier",
-        star: [star],
-
-    },
-    {
-        _id: "aaaay",
-        image: [noir],
-        title: "Bleu Noir For Him",
-        brand: "Narciso Rodriguez",
-        star: [star],
-
-    },
-    {
-        _id: "aaaau",
-        image: [saab],
-        title: "Elie Saab Le Parfum",
-        brand: "Elie Saab",
-        star: [star],
-
-    },
-    {
-        _id: "aaaai",
-        image: [blossom],
-        title: "Blossom",
-        brand: "Jimmy Choo",
-        star: [star],
-
-    },
-    {
-        _id: "aaaao",
-        image: [homme],
-        title: "L'Eau d'Issey Pour Homme",
-        brand: "Issey Miyake",
-        star: [star],
-
-    },
-    {
-        _id: "aaaap",
-        image: [coach],
-        title: "Coach Floral",
-        brand: "Coach",
-        star: [star],
-
-    },
-    {
-        _id: "aaaaq",
-        image: [versace],
-        title: "Bright Crystal",
-        brand: "Versace",
-        star: [star],
-
-    },
-    {
-        _id: "aaaaw",
-        image: [narciso],
-        title: "For Her Eau de Parfum",
-        brand: "Narciso Rodriguez",
-        star: [star],
-
-    },
-    {
-        _id: "aaaae",
-        image: [terre],
-        title: "Terre d'Hermès Eau de Parfum",
-        brand: "Hermès",
-        star: [star],
-
-    },
-    {
-        _id: "aaaar",
-        image: [blue],
-        title: "Dylan Blue",
-        brand: "Versace",
-        star: [star],
-
-    },
-    {
-        _id: "aaaat",
-        image: [declaration],
-        title: "Déclaration EdT",
-        brand: "Cartier",
-        star: [star],
-
-    },
-    {
-        _id: "aaaay",
-        image: [noir],
-        title: "Bleu Noir For Him",
-        brand: "Narciso Rodriguez",
-        star: [star],
-
-    },
-    {
-        _id: "aaaau",
-        image: [saab],
-        title: "Elie Saab Le Parfum",
-        brand: "Elie Saab",
-        star: [star],
-
-    },
-    {
-        _id: "aaaai",
-        image: [blossom],
-        title: "Blossom",
-        brand: "Jimmy Choo",
-        star: [star],
-
-    },
-    {
-        _id: "aaaao",
-        image: [homme],
-        title: "L'Eau d'Issey Pour Homme",
-        brand: "Issey Miyake",
-        star: [star],
-
-    },
-    {
-        _id: "aaaap",
-        image: [coach],
-        title: "Coach Floral",
-        brand: "Coach",
-        star: [star],
-
+        category: "Other"
     },
 ]

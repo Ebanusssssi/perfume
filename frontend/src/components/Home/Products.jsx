@@ -6,16 +6,18 @@ import ProductItem from "../ProductItem";
 const Products = () => {
 
   const { PRODUCTS } = useContext(ShopContext);
-  const [latestProducts, setLatestProducts] = useState([])
+  const [premiumProducts, setPremiumProducts] = useState([])
+  const [nicheProducts, setNicheProducts] = useState([])
+  const [cleanProducts, setCleanProducts] = useState([])
 
   const [activeTabIndex, setActiveTabIndex] = useState(0);
-
-
+  
   useEffect(() => {
-    setLatestProducts(PRODUCTS.slice(0,10));
+    setPremiumProducts(PRODUCTS.filter(item => item.category === "Premium"))
+    setNicheProducts(PRODUCTS.filter(item => item.category === "Niche"))
+    setCleanProducts(PRODUCTS.filter(item => item.category === "Clean"))
   }, [])
-  
-  
+
   const activateTab = (index) => {
     setActiveTabIndex(index);
   }
@@ -44,28 +46,28 @@ const Products = () => {
 
         {/* Product List Tabs */}
 
-        {/* 1 */}
+        {/* #1 Premium */}
         <div className={`${activeTabIndex === 0 ? "grid" : "hidden"} w-full h-fit grid-cols-2 lg:grid-cols-5 gap-[4.5vw] lg:gap-[2.2vw]`}>
           {
-            latestProducts.map((product, index) => (
+            premiumProducts.slice(0,10).map((product, index) => (
               <ProductItem key={index} id={product._id} image={product.image} title={product.title} brand={product.brand} />
             ))
           }
         </div>
 
-        {/* 2 */}
+        {/* #2 Niche   */}
         <div className={`${activeTabIndex === 1 ? "grid" : "hidden"} w-full h-fit lg:h-[45vw] grid-cols-2 lg:grid-cols-5 gap-[4.5vw] lg:gap-[2.2vw]`}>
           {
-            latestProducts.slice(0,5).map((product, index) => (
+            nicheProducts.slice(0,10).map((product, index) => (
               <ProductItem key={index} id={product._id} image={product.image} title={product.title} brand={product.brand} />
             ))
           }
         </div>
 
-        {/* 3 */}
+        {/* #3 Clean */}
         <div className={`${activeTabIndex === 2 ? "grid" : "hidden"} w-full h-fit lg:h-[45vw] grid-cols-2 lg:grid-cols-5 gap-[4.5vw] lg:gap-[2.2vw]`}>
           {
-            latestProducts.slice(0,8).map((product, index) => (
+            cleanProducts.slice(0,10).map((product, index) => (
               <ProductItem key={index} id={product._id} image={product.image} title={product.title} brand={product.brand} />
             ))
           }
