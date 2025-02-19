@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const ProductItem = ({ id, image, title, brand }) => {
   return (
-    <Link to={`/product/${id}`} className="w-full h-full py-[5vw] lg:py-[3vw] bg-[#F6F5F1] rounded-[0.2vw] relative group">
+    <Link to={`/product/${id}`} className="w-full h-fit py-[5vw] lg:py-[3vw] bg-[#F6F5F1] rounded-[0.2vw] relative group">
       {/* Add to Calendar Button */}
       <button className="w-[8.5vw] lg:w-14 h-[8.5vw] lg:h-14 justify-center items-center bg-white rounded-full text-[4.5vw] lg:text-[1.5vw] text-gray-800 leading-none lg:hidden flex lg:group-hover:flex absolute right-[1.5vw] lg:right-[1vw] top-[1.5vw] lg:top-[1vw]">
         +
