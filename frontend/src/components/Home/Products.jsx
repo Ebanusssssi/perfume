@@ -56,7 +56,7 @@ const Products = () => {
         {/* 2 */}
         <div className={`${activeTabIndex === 1 ? "grid" : "hidden"} w-full h-fit lg:h-[45vw] grid-cols-2 lg:grid-cols-5 gap-[4.5vw] lg:gap-[2.2vw]`}>
           {
-            latestProducts.slice(0,6).map((product, index) => (
+            latestProducts.slice(0,5).map((product, index) => (
               <ProductItem key={index} id={product._id} image={product.image} title={product.title} brand={product.brand} />
             ))
           }
