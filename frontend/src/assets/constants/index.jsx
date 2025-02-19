@@ -102,6 +102,7 @@ import paypal from '../paypal.svg'
 import { TbMenu2 } from "react-icons/tb";
 import { LuUserRound } from "react-icons/lu";
 import { IoSearch } from "react-icons/io5";
+import { LuSearch } from "react-icons/lu";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { TiDeleteOutline } from "react-icons/ti";
@@ -111,6 +112,8 @@ import { MdInfoOutline } from "react-icons/md";
 import { FaInstagram } from "react-icons/fa";
 import { FaSquareFacebook } from "react-icons/fa6";
 import { AiFillTikTok } from "react-icons/ai";
+import { RxMixerVertical } from "react-icons/rx";
+
 
 
 
@@ -133,6 +136,21 @@ export const NAVBAR_CONTENT = {
   }
 }
 
+// FOOTER
+export const FOOTER_CONTENT = {
+    topLinks: ["Perfumes", "FAQs", "Delivery Information", "Inspiration", "Our story", "Careers"],
+    socials: {
+        title: "Follow us", 
+        instagram: <FaInstagram className="w-full h-full object-cover text-gray-800" />, 
+        facebook: <FaSquareFacebook className="w-full h-full object-cover text-gray-800" />, 
+        tiktok: <AiFillTikTok className="w-full h-full object-cover text-gray-800" />, 
+    },
+    logo: "parfumado",
+    paymentImages: [ideal, mastercard, visa, paypal],
+    bottomLinks: ["Cookie preferences", "Cookie statement", "Terms & conditions", "Privacy policy"],
+}
+
+// MODALS
 export const SEARCH_MODAL = {
   placeholder: "Find your perfume",
   closeModal: "Close",
@@ -157,7 +175,7 @@ export const SIDEBAR_MENU = {
     }
 }
 
-// HOME
+// HOME PAGE
 export const HOME_HERO = {
     title: "Become a perfume expert in just a few months",
     description: "Choose a new fragrance every month and build your own perfume collection",
@@ -468,19 +486,18 @@ export const HOME_SOCIAL = {
         },
     ],
 }
-// FOOTER
-export const FOOTER_CONTENT = {
-    topLinks: ["Perfumes", "FAQs", "Delivery Information", "Inspiration", "Our story", "Careers"],
-    socials: {
-        title: "Follow us", 
-        instagram: <FaInstagram className="w-full h-full object-cover text-gray-800" />, 
-        facebook: <FaSquareFacebook className="w-full h-full object-cover text-gray-800" />, 
-        tiktok: <AiFillTikTok className="w-full h-full object-cover text-gray-800" />, 
-    },
-    logo: "parfumado",
-    paymentImages: [ideal, mastercard, visa, paypal],
-    bottomLinks: ["Cookie preferences", "Cookie statement", "Terms & conditions", "Privacy policy"],
-  }
+
+// PRODUCTS PAGE
+export const PRODUCTS_CONTENT ={
+    title: "All products",
+    optionsLabels: ["Niche", "Prestige", "Clean", "Other"],
+    icons: {
+        close: <RxCross2 className="w-full h-full object-cover object-center" />,
+        search: <LuSearch className="w-full h-full object-cover object-center" />,
+        filter: <RxMixerVertical  className="w-full h-full object-cover object-center" />,
+    }
+
+}
 
 
 export const PRODUCTS = [
