@@ -27,7 +27,7 @@ const Products = () => {
             />
             {
               searchValue 
-              ? <div onClick={() => setSearchValue("")} className="size-[3vw] lg:size-[1.2vw] cursor-pointer">{PRODUCTS_CONTENT.icons.close}</div>
+              ? <div onClick={() => setSearchValue("")} className="size-6 lg:size-[1.2vw] cursor-pointer">{PRODUCTS_CONTENT.icons.close}</div>
               : <div className="size-6 lg:size-[1.2vw]">{PRODUCTS_CONTENT.icons.search}</div>
               
             }
