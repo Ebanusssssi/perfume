@@ -20,13 +20,16 @@ const Products = () => {
       if (option) {
         productsCopy = productsCopy.filter(item => item.category === option);
       }
+      if (searchValue.length > 0) {
+        productsCopy = productsCopy.filter(item => item.title.toLowerCase().includes(searchValue.toLowerCase()) || item.brand.toLowerCase().includes(searchValue.toLowerCase()));
+      }
       setFilterProducts(productsCopy)
     }
 
     // Calling Apply Option Function When Option Changed
     useEffect(() => {
       applyOption();
-    }, [option])
+    }, [option, searchValue])
   
   return (
     <div className="w-full h-fit px-[4.7vw] py-[4.5vw] lg:py-[3vw]">
@@ -34,7 +37,7 @@ const Products = () => {
       <h2 className="w-full text-center text-[9vw] lg:text-[7.5vw] font-medium mb-[10vw] lg:mb-[3vw]">{PRODUCTS_CONTENT.title}</h2>
 
       {/* Search & Filters */}
-      <div className="flex flex-wrap lg:flex-row items-center justify-between pb-[4.5vw] lg:pb-[3vw]">
+      <div className="flex flex-wrap lg:flex-row items-center justify-between pb-[4.5vw] lg:pb-[1.5vw] lg:border-b border-b-slate-200">
         <div className="w-full lg:w-fit flex-1 justify-center order-2 lg:order-1 ">
           <div className="flex w-fit items-center place-self-center lg:place-self-start px-[8vw] py-[2.5vw] lg:px-[2vw] lg:py-[0.9vw] rounded-full border border-slate-200">
             <input 
@@ -92,13 +95,18 @@ const Products = () => {
       </div>
 
       {/* Products */}
-      <div className="grid w-full h-fit grid-cols-2 lg:grid-cols-5 gap-[4.5vw] lg:gap-[2.2vw] py-[4.5vw] lg:py-[2.5vw] lg:border-t border-t-slate-200">
-        {
-          filterProducts.map((product, index) => (
-            <ProductItem key={index} id={product._id} image={product.image} title={product.title} brand={product.brand} />
-          ))
-        }
-      </div>
+      {
+        filterProducts.length > 0 
+        ?
+        <div className="grid w-full h-fit grid-cols-2 lg:grid-cols-5 gap-[4.5vw] lg:gap-[2.2vw] py-[4.5vw] lg:py-[2.5vw]">
+          {
+            filterProducts.map((product, index) => (
+              <ProductItem key={index} id={product._id} image={product.image} title={product.title} brand={product.brand} />
+            ))
+          }
+        </div>
+        : <div className="w-full uppercase text-center font-medium text-[6vw] lg:text-[1.5vw] pt-[10vw] pb-[60vw] lg:pt-[5vw] lg:pb-[2vw] tracking-wider">no results</div>
+      }
     </div>
   )
 }

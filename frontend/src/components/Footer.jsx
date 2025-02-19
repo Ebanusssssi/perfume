@@ -3,7 +3,7 @@ import { FOOTER_CONTENT } from "../assets/constants";
 
 const Footer = () => {
   return (
-    <footer className="w-full h-fit flex flex-col justify-center items-center px-[8vw] pb-[40vw] lg:pb-0">
+    <footer className="w-full h-fit flex flex-col justify-center items-center px-[4.7vw] pb-[40vw] lg:pb-0">
       {/* Top Links */}
       <ul className="w-full flex flex-col lg:flex-row justify-center items-start lg:items-center gap-[5vw] lg:gap-[4vw] border-t border-t-slate-200 py-[7vw] lg:py-[4.5vw]">
         {
