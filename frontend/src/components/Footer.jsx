@@ -27,11 +27,11 @@ const Footer = () => {
           <Link to="/" className="font-semibold text-[10vw] lg:text-[2.5vw] tracking-normal h-full cursor-pointer">{FOOTER_CONTENT.logo}</Link>
         </div>
         {/* Payment Methods */}
-        <div className="w-full flex justify-center lg:justify-end py-[1.5vw]">
+        <div className="w-full h-fit flex justify-center lg:justify-end py-[1.5vw]">
           <div className="flex items-center justify-center gap-[7vw] lg:gap-[1vw] h-[8vw] lg:h-[2.7vw] opacity-60">
             {
               FOOTER_CONTENT.paymentImages.map((img, index) => (
-                <img key={index} src={img} className="h-full w-full object-cover" />
+                <img key={index} src={img} className="h-full w-auto object-cover object-center" />
               ))
             }
           </div>

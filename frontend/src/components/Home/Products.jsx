@@ -1,11 +1,21 @@
-import { useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { HOME_PRODUCTS } from "../../assets/constants"
-import { NavLink } from "react-router-dom";
+import { ShopContext } from "../../context/ShopContext";
+import ProductItem from "../ProductItem";
 
 const Products = () => {
 
+  const { PRODUCTS } = useContext(ShopContext);
+  const [latestProducts, setLatestProducts] = useState([])
+
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
+
+  useEffect(() => {
+    setLatestProducts(PRODUCTS.slice(0,10));
+  }, [])
+  
+  
   const activateTab = (index) => {
     setActiveTabIndex(index);
   }
@@ -26,10 +36,6 @@ const Products = () => {
                   className="flex items-start gap-[0.5vw] lg:gap-[0.45vw] cursor-pointer group"
                 >
                   <p className={`${index === activeTabIndex ? "border-b-black" : "border-b-transparent"} uppercase text-[4vw] leading-none lg:leading-normal lg:text-[1vw] border-b-2 hover:border-b-black transition-all ease-in-out`}>{label}</p>
-                  {/* <div className="size-[1.1vw] relative z-50 group">
-                    {HOME_PRODUCTS.icons.info}
-                    <div className="absolute top-full left-0 opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 bg-red-500 w-52 h-40"></div>
-                  </div> */}
                 </li>
               ))
             }
@@ -41,82 +47,28 @@ const Products = () => {
         {/* 1 */}
         <div className={`${activeTabIndex === 0 ? "grid" : "hidden"} w-full h-fit grid-cols-2 lg:grid-cols-5 gap-[4.5vw] lg:gap-[2.2vw]`}>
           {
-            HOME_PRODUCTS.productCards.map((card, index) => (
-              <NavLink to="/product/:productId" key={index} className="w-full h-full py-[5vw] lg:py-[3vw] bg-[#F6F5F1] rounded-[0.2vw] relative group">
-                {/* Add to Calendar Button */}
-                <button className="w-[8.5vw] lg:w-14 h-[8.5vw] lg:h-14 justify-center items-center bg-white rounded-full text-[4.5vw] lg:text-[1.5vw] text-gray-800 leading-none lg:hidden flex lg:group-hover:flex absolute right-[1.5vw] lg:right-[1vw] top-[1.5vw] lg:top-[1vw]">
-                  +
-                </button>
-                {/* Products Card Content */}
-                <div className="w-full h-full flex flex-col items-center justify-center truncate">
-                  <img src={card.image} alt="" className="w-[40vw] lg:w-[14vw] h-auto" />
-                  <h3 className="max-w-[80%] lg:max-w-[90%] text-[3.5vw] lg:text-[0.95vw] font-medium truncate">{card.title}</h3>
-                  <p className="max-w-[80%] lg:max-w-[90%] text-[3.2vw] lg:text-[0.8vw] font-normal truncate">{card.brand}</p>
-                  <ul className="flex items-center mt-[0.6vw] lg:mt-[0.2vw] opacity-20">
-                    <li className=""><img src={card.star} alt="" className="size-[3.7vw] lg:size-[1vw]" /></li>
-                    <li className=""><img src={card.star} alt="" className="size-[3.7vw] lg:size-[1vw]" /></li>
-                    <li className=""><img src={card.star} alt="" className="size-[3.7vw] lg:size-[1vw]" /></li>
-                    <li className=""><img src={card.star} alt="" className="size-[3.7vw] lg:size-[1vw]" /></li>
-                    <li className=""><img src={card.star} alt="" className="size-[3.7vw] lg:size-[1vw]" /></li>
-                  </ul>
-                </div>
-              </NavLink>
+            latestProducts.map((product, index) => (
+              <ProductItem key={index} id={product._id} image={product.image} title={product.title} brand={product.brand} />
             ))
           }
         </div>
 
         {/* 2 */}
         <div className={`${activeTabIndex === 1 ? "grid" : "hidden"} w-full h-[340vw] lg:h-[45vw] grid-cols-2 lg:grid-cols-5 gap-[4.5vw] lg:gap-[2.2vw]`}>
-        {
-          HOME_PRODUCTS.productCards2.map((card, index) => (
-            <NavLink to="/product/:productId" key={index} className="w-full h-full py-[5vw] lg:py-[3vw] bg-[#F6F5F1] rounded-[0.2vw] relative group">
-              {/* Add to Calendar Button */}
-              <button className="w-[8.5vw] lg:w-14 h-[8.5vw] lg:h-14 justify-center items-center bg-white rounded-full text-[4.5vw] lg:text-[1.5vw] text-gray-800 leading-none lg:hidden flex lg:group-hover:flex absolute right-[1.5vw] lg:right-[1vw] top-[1.5vw] lg:top-[1vw]">
-                +
-              </button>
-              {/* Products Card Content */}
-              <div className="w-full h-full flex flex-col items-center justify-center truncate">
-                <img src={card.image} alt="" className="w-[40vw] lg:w-[14vw] h-auto" />
-                <h3 className="max-w-[80%] lg:max-w-[90%] text-[3.5vw] lg:text-[0.95vw] font-medium truncate">{card.title}</h3>
-                <p className="max-w-[80%] lg:max-w-[90%] text-[3.2vw] lg:text-[0.8vw] font-normal truncate">{card.brand}</p>
-                <ul className="flex items-center mt-[0.6vw] lg:mt-[0.2vw] opacity-20">
-                  <li className=""><img src={card.star} alt="" className="size-[3.7vw] lg:size-[1vw]" /></li>
-                  <li className=""><img src={card.star} alt="" className="size-[3.7vw] lg:size-[1vw]" /></li>
-                  <li className=""><img src={card.star} alt="" className="size-[3.7vw] lg:size-[1vw]" /></li>
-                  <li className=""><img src={card.star} alt="" className="size-[3.7vw] lg:size-[1vw]" /></li>
-                  <li className=""><img src={card.star} alt="" className="size-[3.7vw] lg:size-[1vw]" /></li>
-                </ul>
-              </div>
-            </NavLink>
-          ))
-        }
+          {
+            latestProducts.slice(0,6).map((product, index) => (
+              <ProductItem key={index} id={product._id} image={product.image} title={product.title} brand={product.brand} />
+            ))
+          }
         </div>
 
         {/* 3 */}
         <div className={`${activeTabIndex === 2 ? "grid" : "hidden"} w-full h-[340vw] lg:h-[45vw] grid-cols-2 lg:grid-cols-5 gap-[4.5vw] lg:gap-[2.2vw]`}>
-        {
-          HOME_PRODUCTS.productCards3.map((card, index) => (
-            <NavLink to="/product/:productId" key={index} className="w-full h-full py-[5vw] lg:py-[3vw] bg-[#F6F5F1] rounded-[0.2vw] relative group">
-              {/* Add to Calendar Button */}
-              <button className="w-[8.5vw] lg:w-14 h-[8.5vw] lg:h-14 justify-center items-center bg-white rounded-full text-[4.5vw] lg:text-[1.5vw] text-gray-800 leading-none lg:hidden flex lg:group-hover:flex absolute right-[1.5vw] lg:right-[1vw] top-[1.5vw] lg:top-[1vw]">
-                +
-              </button>
-              {/* Products Card Content */}
-              <div className="w-full h-full flex flex-col items-center justify-center truncate">
-                <img src={card.image} alt="" className="w-[40vw] lg:w-[14vw] h-auto" />
-                <h3 className="max-w-[80%] lg:max-w-[90%] text-[3.5vw] lg:text-[0.95vw] font-medium truncate">{card.title}</h3>
-                <p className="max-w-[80%] lg:max-w-[90%] text-[3.2vw] lg:text-[0.8vw] font-normal truncate">{card.brand}</p>
-                <ul className="flex items-center mt-[0.6vw] lg:mt-[0.2vw] opacity-20">
-                  <li className=""><img src={card.star} alt="" className="size-[3.7vw] lg:size-[1vw]" /></li>
-                  <li className=""><img src={card.star} alt="" className="size-[3.7vw] lg:size-[1vw]" /></li>
-                  <li className=""><img src={card.star} alt="" className="size-[3.7vw] lg:size-[1vw]" /></li>
-                  <li className=""><img src={card.star} alt="" className="size-[3.7vw] lg:size-[1vw]" /></li>
-                  <li className=""><img src={card.star} alt="" className="size-[3.7vw] lg:size-[1vw]" /></li>
-                </ul>
-              </div>
-            </NavLink>
-          ))
-        }
+          {
+            latestProducts.slice(0,8).map((product, index) => (
+              <ProductItem key={index} id={product._id} image={product.image} title={product.title} brand={product.brand} />
+            ))
+          }
         </div>
 
       </div>

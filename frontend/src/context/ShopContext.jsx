@@ -1,4 +1,5 @@
 import { useState, createContext } from "react";
+import { PRODUCTS } from "../assets/constants";
 
 export const ShopContext = createContext();
 
@@ -9,6 +10,7 @@ const ShopContextProvider = (props) => {
 
 
   const value = {
+    PRODUCTS,
     modalSearchActive,
     setModalSearchActive,
     menuActive,
