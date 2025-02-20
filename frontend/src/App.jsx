@@ -13,10 +13,13 @@ import Collections from './pages/Collections'
 import Footer from './components/Footer'
 import SidebarMenu from './components/SidebarMenu'
 import SearchModal from './components/SearchModal'
+import ScrollToTop from './components/ScrollToTop'
 
 const App = () => {
   return (
     <div className="font-custom">
+
+      <ScrollToTop />
 
       <Navbar />
       <SidebarMenu />
