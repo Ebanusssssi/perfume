@@ -32,7 +32,7 @@ const Products = () => {
     }, [option, searchValue])
   
   return (
-    <div className="w-full h-fit px-[4.7vw] py-[4.5vw] lg:py-[3vw]">
+    <div className="w-full h-fit px-[4.7vw] pb-[4.5vw] pt-[28.5vw] lg:py-[3vw]">
       {/* Title */}
       <h2 className="w-full text-center text-[9vw] lg:text-[7.5vw] font-medium mb-[10vw] lg:mb-[3vw]">{PRODUCTS_CONTENT.title}</h2>
 
