@@ -18,7 +18,7 @@ export const useScroll = () => {
     }, [])
   
     useEffect(() => {
-      if (scrollData.y > 200 && scrollData.lastY < scrollData.y && scrollData.y) {
+      if (scrollData.y > 100 && scrollData.lastY < scrollData.y && scrollData.y) {
         setHideNav(true);
       } else {
         setHideNav(false);
@@ -26,6 +26,7 @@ export const useScroll = () => {
     }, [scrollData])
 
     return {
-      hideNav
+      hideNav,
+      scrollData
     }
 }

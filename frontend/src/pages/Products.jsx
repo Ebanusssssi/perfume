@@ -107,7 +107,7 @@ const Products = () => {
         </div>
         : <div className="w-full uppercase text-center font-medium text-[6vw] lg:text-[1.5vw] pt-[10vw] pb-[60vw] lg:pt-[5vw] lg:pb-[2vw] tracking-wider">no results</div>
       }
-    </div>
+    </div>  
   )
 }
 

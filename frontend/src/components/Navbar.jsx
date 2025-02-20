@@ -1,18 +1,42 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { NAVBAR_CONTENT } from "../assets/constants"
 import { useScroll } from "../hooks/useScroll";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 
 
 const Navbar = () => {
 
   const { setModalSearchActive, setMenuActive } = useContext(ShopContext);
-  const { hideNav } = useScroll();
+  const { hideNav, scrollData } = useScroll();
+  const location = useLocation();
+  const [fix, setFix] = useState(false);
+  const [transparent, setTransparent] = useState(false);
 
+
+  useEffect(()=> {
+    if (location.pathname.includes('product')) {
+      setFix(true);
+    }
+    else {
+      setFix(false);
+    }
+
+    if (location.pathname.includes('product') && scrollData.y < 100) {
+      setTransparent(true);
+    }
+    else {
+      setTransparent(false);
+    }
+    if (!location.pathname.includes('product')) {
+      setTransparent(false);
+    }
+
+
+  }, [location, scrollData])
 
   return (
-    <header className={`${hideNav ? 'hideNavbar' : ''} h-fit px-[4.7vw] py-[4.5vw] lg:py-[1.5vw] bg-white sticky w-full top-0 z-40 transition-all duration-300 ease-in-out`}>
+    <header className={`${hideNav ? 'hideNavbar' : ''} h-fit px-[4.7vw] py-[4.5vw] lg:py-[1.5vw] ${transparent ? 'bg-transparent' : 'bg-white'} ${fix ? 'fixed' : 'sticky'} w-full top-0 z-40 transition-all duration-300 ease-in-out`}>
       <nav className="h-full">
         <ul className="flex items-center justify-between lg:justify-center h-full">
 
