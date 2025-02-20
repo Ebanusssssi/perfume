@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { NAVBAR_CONTENT } from "../assets/constants"
 import { useScroll } from "../hooks/useScroll";
 import { useContext, useEffect, useState } from "react";
@@ -58,7 +58,7 @@ const Navbar = () => {
                 className="w-[6vw] lg:w-[1.5vw]"> 
                 {NAVBAR_CONTENT.icons.menu} 
               </button>
-              <button className="w-[6vw] lg:w-[1.5vw]"> {NAVBAR_CONTENT.icons.user} </button>
+              <Link to='/login' className="w-[6vw] lg:w-[1.5vw]"> {NAVBAR_CONTENT.icons.user} </Link>
             </div>
           </li>
 
