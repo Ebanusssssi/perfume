@@ -6,7 +6,7 @@ const Carousel = ({images}) => {
 
   // Функция для смены слайда
   const changeSlide = () => {
-    setSlide((prevSlide) => (prevSlide === images.length - 1 ? 0 : prevSlide + 1));
+    setSlide(slide === 2 ? 0 : slide + 1);
   };
 
   useEffect(() => {
@@ -23,7 +23,8 @@ const Carousel = ({images}) => {
             key={index}
             src={item} 
             alt="Slide Image"
-            className={`min-w-full h-full object-cover object-center transform translate-x-[-${slide * 100}%] transition-all duration-1000 ease-in-out`}
+            style={{ transform: `translateX(-${slide * 100}%)` }}
+            className={`min-w-full h-full object-cover object-center transition-all duration-1000 ease-in-out`}
           />
         ))
       }
