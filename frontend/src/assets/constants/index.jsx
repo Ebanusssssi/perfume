@@ -492,7 +492,7 @@ export const PRODUCTS = [
         family: "Floral",
         style: "Trendy",
         trail: 30,
-        presence: 48,
+        presence: 45,
         description: "Bright Crystal is a women's Eau de Toilette from Versace. Bright Crystal by Versace is a floral fruity perfume for women. It is a very popular classic from Versace."
     },
     {

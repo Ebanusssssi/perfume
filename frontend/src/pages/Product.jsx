@@ -8,8 +8,6 @@ const Product = () => {
   const { PRODUCTS } = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState(false);
-  const [trailIndicator, setTrailIndicator] = useState(0);
-  const [presenceIndicator, setPresenceIndicator] = useState(0);
   const [showDescription, setShowDescription] = useState(false);
   const [showNotes, setShowNotes] = useState(false);
 
@@ -18,8 +16,7 @@ const Product = () => {
       if (item._id === productId) {
         setProductData(item);
         setImage(item.image[0])
-        setTrailIndicator(item.trail - 20);
-        setPresenceIndicator(item.presence - 20);
+        
         return null;
       }
     })
@@ -107,16 +104,17 @@ const Product = () => {
 
                 {/* Gradient Indicators */}
                 <div className="">
-                   {/* Trail */}
-                   <div className="w-full flex flex-col items-start justify-between gap-[1.5vw] lg:gap-[0.5vw] py-[3.6vw] lg:py-[0.8vw] mt-[5vw] lg:mt-[2vw] border-t border-t-black/10 overflow-visible">
+                  {/* Trail */}
+                  <div className="w-full flex flex-col items-start justify-between gap-[1.5vw] lg:gap-[0.5vw] py-[3.6vw] lg:py-[0.8vw] mt-[5vw] lg:mt-[2vw] border-t border-t-black/10 overflow-visible">
                     {/* Title */}
                     <div className="flex">
                       <h4 className="font-medium text-[3.5vw] lg:text-[0.92vw] whitespace-nowrap tracking-wide lg:tracking-normal">Trail of trace</h4>
                     </div>
                     {/* Indicator */}
                     <div className="h-[7vw] lg:h-[2.1vw] w-full bg-black/80 relative overflow-hidden">
-                      <div className={`absolute left-[${trailIndicator}%] top-1/2 -translate-y-1/2 bg-[linear-gradient(90deg,_rgba(0,0,0,0)_0%,_rgba(255,255,255,1)_20%,_rgba(255,255,255,1)_100%)] h-[110%] w-[100%]`}></div>
+                      <div style={{ left: `${productData.trail - 10}%`}} className={`absolute top-1/2 -translate-y-1/2 bg-[linear-gradient(90deg,_rgba(0,0,0,0)_0%,_rgba(255,255,255,1)_20%,_rgba(255,255,255,1)_100%)] h-[110%] w-full`}></div>
                     </div>
+                    {/* Light - Strong */}
                     <div className="w-full flex items-center justify-between">
                       <span className="text-[3.3vw] lg:text-[0.8vw] text-gray-600">Light</span>
                       <span className="text-[3.3vw] lg:text-[0.8vw] text-gray-600">Strong</span>
@@ -130,7 +128,7 @@ const Product = () => {
                     </div>
                     {/* Indicator */}
                     <div className="h-[7vw] lg:h-[2.1vw] w-full bg-black/80 relative overflow-hidden">
-                      <div className={`absolute left-[${presenceIndicator}%] top-1/2 -translate-y-1/2 bg-[linear-gradient(90deg,_rgba(0,0,0,0)_0%,_rgba(255,255,255,1)_20%,_rgba(255,255,255,1)_100%)] h-[110%] w-[100%]`}></div>
+                      <div style={{ left: `${productData.presence - 10}%`}} className={`absolute top-1/2 -translate-y-1/2 bg-[linear-gradient(90deg,_rgba(0,0,0,0)_0%,_rgba(255,255,255,1)_20%,_rgba(255,255,255,1)_100%)] h-[110%] w-full`}></div>
                     </div>
                     {/* 4 hour - 12 hours */}
                     <div className="w-full flex items-center justify-between">
@@ -161,7 +159,7 @@ const Product = () => {
                     <ul className={`${showNotes ? "flex opacity-100" : "hidden opacity-0"} flex flex-col items-start gap-[1.5vw] lg:gap-[0.5vw] px-[3vw] pb-[1.5vw] lg:px-[0.8vw] lg:pb-[0.75vw] transition-all ease-in-out`}>
                       {
                         productData.notes.map((note, index) => (
-                          <li key={index} className="text-[3.3vw] text-gray-600">{note}</li>
+                          <li key={index} className="text-[3.3vw] lg:text-[0.92vw] text-gray-600">{note}</li>
                         ))
                       }
                     </ul>
