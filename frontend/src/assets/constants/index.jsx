@@ -79,6 +79,8 @@ import { FaInstagram } from "react-icons/fa";
 import { FaSquareFacebook } from "react-icons/fa6";
 import { AiFillTikTok } from "react-icons/ai";
 import { RxMixerVertical } from "react-icons/rx";
+import { HiChevronDown } from "react-icons/hi";
+
 
 
 
@@ -465,6 +467,13 @@ export const PRODUCTS_CONTENT ={
 
 }
 
+// SINGLE PRODUCT PAGE
+export const SINGLE_PRODUCT_CONTENT ={
+    icons: {
+        chevron: <HiChevronDown className="w-full h-full object-cover object-center" />,
+    }
+
+}
 
 export const PRODUCTS = [
 
