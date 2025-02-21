@@ -111,7 +111,7 @@ const Product = () => {
                     </div>
                     {/* Indicator */}
                     <div className="h-[7vw] lg:h-[2.1vw] w-full bg-black/80 relative overflow-hidden">
-                      <div className={`absolute left-[${productData.trail - 10}%] top-1/2 -translate-y-1/2 translate-x-0 bg-[linear-gradient(90deg,_rgba(0,0,0,0)_0%,_rgba(255,255,255,1)_20%,_rgba(255,255,255,1)_100%)] h-[110%] w-[100%]`}></div>
+                      <div className={`absolute left-[${productData.trail}%] top-1/2 -translate-y-1/2 bg-[linear-gradient(90deg,_rgba(0,0,0,0)_0%,_rgba(255,255,255,1)_20%,_rgba(255,255,255,1)_100%)] h-[110%] w-[100%]`}></div>
                     </div>
                     {/* Light - Strong */}
                     <div className="w-full flex items-center justify-between">
@@ -127,7 +127,7 @@ const Product = () => {
                     </div>
                     {/* Indicator */}
                     <div className="h-[7vw] lg:h-[2.1vw] w-full bg-black/80 relative overflow-hidden">
-                      <div className={`absolute left-[${productData.presence - 10}%] top-1/2 -translate-y-1/2 translate-x-0 bg-[linear-gradient(90deg,_rgba(0,0,0,0)_0%,_rgba(255,255,255,1)_20%,_rgba(255,255,255,1)_100%)] h-[110%] w-[100%]`}></div>
+                      <div className={`absolute left-[${productData.presence}%] top-1/2 -translate-y-1/2 bg-[linear-gradient(90deg,_rgba(0,0,0,0)_0%,_rgba(255,255,255,1)_20%,_rgba(255,255,255,1)_100%)] h-[110%] w-[100%]`}></div>
                     </div>
                     {/* 4 hour - 12 hours */}
                     <div className="w-full flex items-center justify-between">
