@@ -7,6 +7,7 @@ import DropdownDetail from "../components/Product/DropdownDetail";
 import { PRODUCT_CONTENT } from "../assets/constants";
 import ProductDescription from "../components/Product/ProductDescription";
 import RelatedProducts from "../components/RelatedProducts";
+import Loader from "../components/Loader";
 
 const Product = () => {
   const { productId } = useParams();
@@ -19,8 +20,8 @@ const Product = () => {
     PRODUCTS.map((item)=>{
       if (item._id === productId) {
         setProductData(item);
-        setLoading(false)
-        setImage(item.image[0])
+        setImage(item.image[0]);
+        setLoading(false);
         
         return null;
       }
@@ -30,9 +31,16 @@ const Product = () => {
   useEffect(() => {
     fetchProductData();
   }, [productId, PRODUCTS])
-  
-  return !loading ? (
 
+
+  
+  if (loading) {
+    return (
+      <Loader boxHeight={"screen"} boxWidth={"full"} loaderSize={"14"} />
+    )
+  }
+  
+  return (
     <section className="w-full h-fit">
       <div className="w-full h-fit flex flex-col lg:flex-row">
         {/* Perfume Image */}
@@ -127,10 +135,7 @@ const Product = () => {
       </div>
       <RelatedProducts productData={productData} />
     </section>
-
-  ) : <div className="w-full h-screen rounded-[2vw] flex items-center justify-center opacity-50">
-        <div className="size-14 rounded-full bg-gradient-to-r from-transparent to-gray-500 animate-spin"></div>
-      </div>
+  )
 
 }
 

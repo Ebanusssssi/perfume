@@ -5,13 +5,13 @@ import ProductItem from "../components/ProductItem";
 import { RELATED_PRODUCT } from "../assets/constants";
 
 const RelatedProducts = ({ productData }) => {
-    const { PRODUCTS } = useContext(ShopContext);
-    const [relatedProducts, setRelatedProducts] = useState([])
+  const { PRODUCTS } = useContext(ShopContext);
+  const [relatedProducts, setRelatedProducts] = useState([])
 
-    useEffect(() => {
-      setRelatedProducts(PRODUCTS.filter(product => product.family === productData.family))
-    }, [PRODUCTS, productData])
-    
+  // Setting Related Products Moking Preferences Filtration
+  useEffect(() => {
+    setRelatedProducts(PRODUCTS.filter(product => product.family === productData.family && product.style !== productData.style && product._id !== productData._id)) 
+  }, [PRODUCTS, productData])
 
   return (
     <section className='w-full h-fit pt-[18vw] lg:pt-[5vw]'>

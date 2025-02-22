@@ -4,32 +4,33 @@ import ProductItem from "../components/ProductItem";
 import { PRODUCTS_CONTENT } from "../assets/constants";
 
 const Products = () => {
-    const { PRODUCTS, setModalFiltersActive } = useContext(ShopContext);
-    const [searchValue, setSearchValue] = useState("");
-    const [filterProducts, setFilterProducts] = useState([]);
-    const [option, setOption] = useState(null);
-    
-    // Toggle Perfume Options (Filter)
-    const toggleOption = (option) => {
-      setOption(option);
-    }
+  const { PRODUCTS, setModalFiltersActive } = useContext(ShopContext);
+  const [searchValue, setSearchValue] = useState("");
+  const [filterProducts, setFilterProducts] = useState([]);
+  const [option, setOption] = useState(null);
+  
+  // Toggle Perfume Options (Filter)
+  const toggleOption = (option) => {
+    setOption(option);
+  }
 
-    // Setting Product List Depends on Chosen Option
-    const applyOption = () => {
-      let productsCopy = PRODUCTS.slice();
-      if (option) {
-        productsCopy = productsCopy.filter(item => item.category === option);
-      }
-      if (searchValue.length > 0) {
-        productsCopy = productsCopy.filter(item => item.title.toLowerCase().includes(searchValue.toLowerCase()) || item.brand.toLowerCase().includes(searchValue.toLowerCase()));
-      }
-      setFilterProducts(productsCopy)
+  // Setting Product List Depends on Chosen Option
+  const applyOption = () => {
+    let productsCopy = PRODUCTS.slice();
+    if (option) {
+      productsCopy = productsCopy.filter(item => item.category === option);
     }
+    if (searchValue.length > 0) {
+      productsCopy = productsCopy.filter(item => item.title.toLowerCase().includes(searchValue.toLowerCase()) || item.brand.toLowerCase().includes(searchValue.toLowerCase()));
+    }
+    setFilterProducts(productsCopy)
+  }
 
-    // Calling Apply Option Function When Option Changed
-    useEffect(() => {
-      applyOption();
-    }, [option, searchValue])
+  // Calling Apply Option Function When Option Changed
+  useEffect(() => {
+    applyOption();
+  }, [option, searchValue])
+
   
   return (
     <div className="w-full h-fit px-[4.7vw] pb-[4.5vw] pt-[28.5vw] lg:py-[3vw]">
