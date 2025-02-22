@@ -10,7 +10,7 @@ const Carousel = ({images}) => {
   };
 
   useEffect(() => {
-    const interval = setInterval(changeSlide, 7000); // Смена слайдов каждую 7 секунд
+    const interval = setInterval(changeSlide, 7000); // Смена слайдов каждые 7 секунд
     return () => clearInterval(interval); // Очистка интервала при размонтировании компонента
   }, [images.length, slide]); // Делаем зависимость от длины массива изображений`
 
@@ -21,7 +21,7 @@ const Carousel = ({images}) => {
         images.map((item, index) => (
           <img 
             key={index}
-            src={item} 
+            src={item}
             alt="Slide Image"
             style={{ transform: `translateX(-${slide * 100}%)` }}
             className={`min-w-full h-full object-cover object-center transition-all duration-1000 ease-in-out`}

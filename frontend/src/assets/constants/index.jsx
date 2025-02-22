@@ -80,6 +80,8 @@ import { FaSquareFacebook } from "react-icons/fa6";
 import { AiFillTikTok } from "react-icons/ai";
 import { RxMixerVertical } from "react-icons/rx";
 import { HiChevronDown } from "react-icons/hi";
+import { LuPlus } from "react-icons/lu";
+
 
 
 
@@ -117,6 +119,13 @@ export const FOOTER_CONTENT = {
     paymentImages: [ideal, mastercard, visa, paypal],
     bottomLinks: ["Cookie preferences", "Cookie statement", "Terms & conditions", "Privacy policy"],
 }
+
+// PRODUCT CARD
+export const PRODUCT_CARD = {
+    icons: {
+      add: <LuPlus className="w-full h-full object-cover" />,
+    }
+  }
 
 // MODALS
 export const SEARCH_MODAL = {
@@ -468,9 +477,26 @@ export const PRODUCTS_CONTENT ={
 }
 
 // SINGLE PRODUCT PAGE
-export const SINGLE_PRODUCT_CONTENT ={
+export const PRODUCT_CONTENT ={
+
+    titleDescr: "Product description",
+    titleGender: "Gender",
+    titleClass: "Class",
+    titleNotes: "Fragnance notes",
+    titleFamily: "Fragnance family",
+    titleType: "Type",
+    titleStyle: "Style",
+    more: "Read more",
+
+    indicators: {
+        trailTitle: "Trail of trace",
+        presenceTitle: "Presence in hours",
+        trailRange: ["Light", "Strong"],
+        presenceRange: ["4 Hours", "12 Hours"],
+    },
     icons: {
         chevron: <HiChevronDown className="w-full h-full object-cover object-center" />,
+        star: star,
     }
 
 }

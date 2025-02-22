@@ -1,0 +1,36 @@
+import { useContext } from "react";
+import { Link } from "react-router-dom"
+import { ShopContext } from "../context/ShopContext";
+import ProductItem from "../components/ProductItem";
+
+const RelatedProducts = () => {
+    const { PRODUCTS } = useContext(ShopContext);
+
+  return (
+    <section className='w-full h-fit px-[4.7vw] py-[18vw] lg:py-[5vw]'>
+      <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-[5vw] mb-[12vw] lg:mb-[4vw]">
+        <h2 className="w-[90%] lg:w-full text-[5vw] lg:text-[2vw] font-medium tracking-wide lg:leading-none">You may also like these similar choices</h2>
+        <Link to="/products" className="hidden lg:block text-[3.8vw] lg:text-[1vw] whitespace-nowrap text-black/70 hover:text-black tracking-wide leading-none uppercase transition-colors ease-in-out">Explore all</Link>
+      </div>
+      <div className="w-full">
+        <div className="grid w-full h-fit grid-cols-2 lg:grid-cols-5 gap-[4.5vw] lg:gap-[2vw]">
+          {
+            PRODUCTS.slice(0,5).map((product, index) => (
+              <ProductItem key={index} id={product._id} image={product.image[0]} title={product.title} brand={product.brand}/>
+            ))
+          }
+        </div>
+      </div>
+      <Link 
+        to="/products" 
+        className="block lg:hidden mt-[12vw] px-[15vw] py-[5vw] lg:px-[2.4vw] lg:py-[1.2vw] text-[3.8vw] lg:text-[1vw] whitespace-nowrap text-center
+        tracking-wide text-white bg-black border border-black hover:border-slate-200 rounded-full
+        hover:text-black hover:bg-white hover:scale-110 transition-all duration-300 ease-in-outcursor-pointer"
+      >
+        Explore all
+      </Link>
+    </section>
+  )
+}
+
+export default RelatedProducts

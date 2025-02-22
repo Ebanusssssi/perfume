@@ -16,7 +16,7 @@ const Products = () => {
     setPremiumProducts(PRODUCTS.filter(item => item.category === "Premium"))
     setNicheProducts(PRODUCTS.filter(item => item.category === "Niche"))
     setCleanProducts(PRODUCTS.filter(item => item.category === "Clean"))
-  }, [])
+  }, [PRODUCTS])
 
   const activateTab = (index) => {
     setActiveTabIndex(index);
@@ -47,28 +47,28 @@ const Products = () => {
         {/* Product List Tabs */}
 
         {/* #1 Premium */}
-        <div className={`${activeTabIndex === 0 ? "grid" : "hidden"} w-full h-fit grid-cols-2 lg:grid-cols-5 gap-[4.5vw] lg:gap-[2.2vw]`}>
+        <div className={`${activeTabIndex === 0 ? "grid" : "hidden"} w-full h-fit grid-cols-2 lg:grid-cols-5 gap-[4.5vw] lg:gap-[2vw]`}>
           {
             premiumProducts.slice(0,10).map((product, index) => (
-              <ProductItem key={index} id={product._id} image={product.image} title={product.title} brand={product.brand} />
+              <ProductItem key={index} id={product._id} image={product.image[0]} title={product.title} brand={product.brand} />
             ))
           }
         </div>
 
         {/* #2 Niche   */}
-        <div className={`${activeTabIndex === 1 ? "grid" : "hidden"} w-full h-fit lg:h-[45vw] grid-cols-2 lg:grid-cols-5 gap-[4.5vw] lg:gap-[2.2vw]`}>
+        <div className={`${activeTabIndex === 1 ? "grid" : "hidden"} w-full h-fit lg:h-[45vw] grid-cols-2 lg:grid-cols-5 gap-[4.5vw] lg:gap-[2vw]`}>
           {
             nicheProducts.slice(0,10).map((product, index) => (
-              <ProductItem key={index} id={product._id} image={product.image} title={product.title} brand={product.brand} />
+              <ProductItem key={index} id={product._id} image={product.image[0]} title={product.title} brand={product.brand} />
             ))
           }
         </div>
 
         {/* #3 Clean */}
-        <div className={`${activeTabIndex === 2 ? "grid" : "hidden"} w-full h-fit lg:h-[45vw] grid-cols-2 lg:grid-cols-5 gap-[4.5vw] lg:gap-[2.2vw]`}>
+        <div className={`${activeTabIndex === 2 ? "grid" : "hidden"} w-full h-fit lg:h-[45vw] grid-cols-2 lg:grid-cols-5 gap-[4.5vw] lg:gap-[2vw]`}>
           {
             cleanProducts.slice(0,10).map((product, index) => (
-              <ProductItem key={index} id={product._id} image={product.image} title={product.title} brand={product.brand} />
+              <ProductItem key={index} id={product._id} image={product.image[0]} title={product.title} brand={product.brand} />
             ))
           }
         </div>
