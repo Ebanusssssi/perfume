@@ -11,9 +11,9 @@ import RelatedProducts from "../components/RelatedProducts";
 const Product = () => {
   const { productId } = useParams();
   const { PRODUCTS } = useContext(ShopContext);
-  const [productData, setProductData] = useState(false);
+  const [productData, setProductData] = useState([]);
   const [image, setImage] = useState(null);
-  const [lodaing, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const fetchProductData = async () => {
     PRODUCTS.map((item)=>{
@@ -31,8 +31,7 @@ const Product = () => {
     fetchProductData();
   }, [productId, PRODUCTS])
   
-  // bg-[linear-gradient(0deg,_rgba(255,255,255,1)_29%,_rgba(255,255,255,0)_100%)]]
-  return !lodaing ? (
+  return !loading ? (
 
     <section className="w-full h-fit">
       <div className="w-full h-fit flex flex-col lg:flex-row">
@@ -126,7 +125,7 @@ const Product = () => {
           </div>
         </div>
       </div>
-      <RelatedProducts />
+      <RelatedProducts productData={productData} />
     </section>
 
   ) : <div className="w-full h-screen rounded-[2vw] flex items-center justify-center opacity-50">
