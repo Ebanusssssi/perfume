@@ -14,6 +14,10 @@ import Footer from './components/Footer'
 import SidebarMenu from './components/SidebarMenu'
 import SearchModal from './components/SearchModal'
 import ScrollToTop from './components/ScrollToTop'
+import Register from './pages/Register'
+import PasswordRecovery from './pages/PasswordRecovery'
+import TermsAndConditions from './pages/TermsAndConditions'
+import FiltersModal from './components/FiltersModal'
 
 const App = () => {
   return (
@@ -24,6 +28,7 @@ const App = () => {
       <Navbar />
       <SidebarMenu />
       <SearchModal />
+      <FiltersModal />
 
       <Routes>
         <Route path='/' element={ <Home/> }/>
@@ -32,6 +37,9 @@ const App = () => {
         <Route path='/product/:productId' element={ <Product/> }/>
         <Route path='/cart' element={ <Cart/> }/>
         <Route path='/login' element={ <Login/> }/>
+        <Route path='/register' element={ <Register/> }/>
+        <Route path='/recovery' element={ <PasswordRecovery/> }/>
+        <Route path='/terms-and-conditions' element={ <TermsAndConditions/> }/>
         <Route path='/place-order' element={ <PlaceOrder/> }/>
         <Route path='/orders-list' element={ <OrdersList/> }/>
         <Route path='/quiz' element={ <Quiz/> }/>

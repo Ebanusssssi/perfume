@@ -15,20 +15,20 @@ const Navbar = () => {
 
 
   useEffect(()=> {
-    if (location.pathname.includes('product')) {
+    if (location.pathname !== '/') {
       setFix(true);
     }
     else {
       setFix(false);
     }
 
-    if (location.pathname.includes('product') && scrollData.y < 100) {
+    if (location.pathname !== '/' && scrollData.y < 100) {
       setTransparent(true);
     }
     else {
       setTransparent(false);
     }
-    if (!location.pathname.includes('product')) {
+    if (location.pathname === '/') {
       setTransparent(false);
     }
 

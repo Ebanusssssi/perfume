@@ -1,7 +1,7 @@
 
 const Collections = () => {
   return (
-    <div>Collections</div>
+    <div className="h-screen flex items-center justify-center">Collections</div>
   )
 }
 

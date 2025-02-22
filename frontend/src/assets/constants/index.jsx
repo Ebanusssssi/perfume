@@ -49,12 +49,17 @@ import sunsandroomspray from '../sunsandroomspray.webp'
 import africanhoursroomspray from '../africanhoursroomspray.webp'
 import bestsellerexpset from '../bestsellerexpset.webp'
 
-// FAMILY BANNERS
+// FRAGNANCE FAMILY BANNERS
 import exoticFamily from '../exoticFamily.webp'
 import floralFamily from '../floralFamily.webp'
 import freshFamily from '../freshFamily.webp'
 import gourmandFamily from '../gourmandFamily.webp'
 import woodyFamily from '../woodyFamily.webp'
+
+// LOGIN PAGE BACKGROUNDS
+import loginBackgroundLargeScreen from '../loginPageBg.webp'
+import loginBackgroundSmallScreen from '../loginPageBgSm.webp'
+
 
 // STAR
 import star from '../star.svg'
@@ -133,7 +138,16 @@ export const PRODUCT_CARD = {
     icons: {
       add: <LuPlus className="w-full h-full object-cover" />,
     }
-  }
+}
+// RELATED PRODUCT
+export const RELATED_PRODUCT = {
+    title: "You may also like these similar choices",
+    exploreButton: "Explore all",
+    bannerTitle: "Fragnance family",
+    icons: {
+      add: <LuPlus className="w-full h-full object-cover" />,
+    }
+}
 
 // MODALS
 export const SEARCH_MODAL = {
@@ -158,6 +172,28 @@ export const SIDEBAR_MENU = {
     icons: {
       close: <RxCross2 className="w-full h-full object-cover" />,
     }
+}
+
+// LOGIN PAGE
+export const LOGIN_CONTENT = {
+    title: "Sign in",
+    notYet: "Not signed up yet?",
+    registerLink: "Create a free account",
+    signInButton: "Sign in",
+    forgot: "Forgot password?",
+    backgroundLG: loginBackgroundLargeScreen,
+    backgroundSM: loginBackgroundSmallScreen,
+}
+
+// REGISTER PAGE
+export const REGISTER_CONTENT = {
+    title: "Create a free account",
+    haveAccount: "Do you already have an account?",
+    registerLink: "Log in",
+    terms: "By continuing, you agree to the Terms and Conditions of Parfumado.",
+    signInButton: "Create your account",
+    backgroundLG: loginBackgroundLargeScreen,
+    backgroundSM: loginBackgroundSmallScreen,
 }
 
 // HOME PAGE
@@ -495,6 +531,7 @@ export const PRODUCT_CONTENT ={
     titleType: "Type",
     titleStyle: "Style",
     more: "Read more",
+    buttonText: "Add to calendar",
 
     indicators: {
         trailTitle: "Trail of trace",

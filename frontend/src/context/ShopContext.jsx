@@ -6,13 +6,17 @@ export const ShopContext = createContext();
 const ShopContextProvider = (props) => {
 
   const [modalSearchActive, setModalSearchActive] = useState(false);
+  const [modalFiltersActive, setModalFiltersActive] = useState(false);
   const [menuActive, setMenuActive] = useState(false);
 
 
   const value = {
     PRODUCTS,
+
     modalSearchActive,
     setModalSearchActive,
+    modalFiltersActive,
+    setModalFiltersActive,
     menuActive,
     setMenuActive,
   }

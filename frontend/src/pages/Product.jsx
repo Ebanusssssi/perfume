@@ -78,10 +78,10 @@ const Product = () => {
           <button
             className="w-full font-normal lg:font-semibold text-[4vw] lg:text-[1vw] tracking-wide text-white bg-black border border-black hover:border-slate-200 
             px-[15vw] py-[5vw] my-[1vw] lg:px-[2.4vw] lg:py-[1.2vw] rounded-full 
-            hover:text-black hover:bg-white hover:scale-110 transition-all duration-300 ease-in-out
+            hover:text-black hover:bg-white hover:scale-105 transition-all duration-300 ease-in-out
             cursor-pointer"
           >
-            Add to calendar
+            {PRODUCT_CONTENT.buttonText}
           </button>
           {/* All Details */}
           <div className="w-full h-fit bg-white rounded-[2.5vw] lg:rounded-[0.5vw]">

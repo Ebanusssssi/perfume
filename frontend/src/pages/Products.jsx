@@ -4,7 +4,7 @@ import ProductItem from "../components/ProductItem";
 import { PRODUCTS_CONTENT } from "../assets/constants";
 
 const Products = () => {
-    const { PRODUCTS } = useContext(ShopContext);
+    const { PRODUCTS, setModalFiltersActive } = useContext(ShopContext);
     const [searchValue, setSearchValue] = useState("");
     const [filterProducts, setFilterProducts] = useState([]);
     const [option, setOption] = useState(null);
@@ -86,7 +86,7 @@ const Products = () => {
         </div>
 
         {/* Filters Button */}
-        <div className="w-full lg:w-fit flex-1 flex justify-center lg:justify-end order-3">
+        <div onClick={() => setModalFiltersActive(true)} className="w-full lg:w-fit flex-1 flex justify-center lg:justify-end order-3">
           <button className="flex items-center gap-[1vw] lg:gap-[0.2vw] w-fit lg:px-[2vw] lg:py-[0.9vw] px-[8vw] py-[2.5vw] rounded-full border border-slate-200">
             <div className="size-6 lg:size-[1.2vw]">{PRODUCTS_CONTENT.icons.filter}</div>
             <span className="uppercase text-[3.2vw] lg:text-[1vw] lg:leading-none pt-[0.1vw]">Filters</span>
