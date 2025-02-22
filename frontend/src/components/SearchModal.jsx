@@ -92,7 +92,7 @@ const SearchModal = () => {
                   to={`/product/${product._id}`} 
                   className="w-full h-[22vw] lg:h-[6vw] flex items-center gap-[2vw] lg:gap-[0.5vw] lg:py-[0.5vw] px-[1.5vw] hover:bg-gray-100 border-b border-b-black/10"
                 >
-                  <div className="h-[22vw] lg:h-[6vw] w-auto overflow-hidden p-[2vw] lg:p-[0.3vw]">
+                  <div className="h-full overflow-hidden p-[2vw] lg:p-[0.3vw]">
                     <img src={product.image[0]} alt="" className="w-full h-full object-cover object-center" />
                   </div>
                   <div className="flex flex-col items-start gap-[0.3vw] lg:gap-[0.1vw] text-[4vw] lg:text-[1vw] font-medium">
