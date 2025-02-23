@@ -117,6 +117,7 @@ const CalendarModal = () => {
                           <>
                             <p className="absolute top-[0.1vw] left-1/2 -translate-x-1/2 text-[2.2vw] lg:text-[0.5vw] text-black/25 font-bold tracking-wide">{month[index]}</p>
                             <Link
+                              onClick={() => setModalCalendarActive(false)}
                               to={`/product/${product._id}`} 
                               className="w-full h-full flex flex-col items-center py-[2vw] bg-[#F6F5F1] "
                             >
