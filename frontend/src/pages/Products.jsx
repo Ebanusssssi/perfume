@@ -102,7 +102,7 @@ const Products = () => {
         <div className="grid w-full h-fit grid-cols-2 lg:grid-cols-5 gap-[4.5vw] lg:gap-[2.2vw] py-[4.5vw] lg:py-[2.5vw]">
           {
             filterProducts.map((product, index) => (
-              <ProductItem key={index} id={product._id} image={product.image} title={product.title} brand={product.brand} />
+              <ProductItem key={index} id={product._id} image={product.image} title={product.title} brand={product.brand} product={product}/>
             ))
           }
         </div>
