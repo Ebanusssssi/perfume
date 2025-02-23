@@ -4,7 +4,6 @@ import { SEARCH_MODAL } from "../assets/constants"
 import { ShopContext } from "../context/ShopContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import Loader from "./Loader";
 
 const SearchModal = () => {
   const { PRODUCTS, modalSearchActive, setModalSearchActive } = useContext(ShopContext);

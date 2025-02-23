@@ -5,18 +5,29 @@ export const ShopContext = createContext();
 
 const ShopContextProvider = (props) => {
 
+  const [modalCalendarActive, setModalCalendarActive] = useState(false);
   const [modalSearchActive, setModalSearchActive] = useState(false);
   const [modalFiltersActive, setModalFiltersActive] = useState(false);
   const [menuActive, setMenuActive] = useState(false);
+
+  const [calendarItems, setCalendarItems] = useState(Array(24).fill(null));
 
 
   const value = {
     PRODUCTS,
 
+    calendarItems,
+    setCalendarItems,
+
+    modalCalendarActive,
+    setModalCalendarActive,
+
     modalSearchActive,
     setModalSearchActive,
+
     modalFiltersActive,
     setModalFiltersActive,
+
     menuActive,
     setMenuActive,
   }

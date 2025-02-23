@@ -7,7 +7,7 @@ import { ShopContext } from "../context/ShopContext";
 
 const Navbar = () => {
 
-  const { setModalSearchActive, setMenuActive } = useContext(ShopContext);
+  const { setModalSearchActive, setModalCalendarActive, setMenuActive } = useContext(ShopContext);
   const { hideNav, scrollData } = useScroll();
   const location = useLocation();
   const [fix, setFix] = useState(false);
@@ -69,7 +69,10 @@ const Navbar = () => {
           <li className="lg:flex-1">
             <ul className="flex items-center justify-self-end gap-[3.8vw] lg:gap-[2.5vw] font-semibold text-xl tracking-wide text-black">
 
-              <button className="hidden lg:block py-[0.3vw] cursor-pointer relative group"> 
+              <button
+                onClick={() => setModalCalendarActive(true)}
+                className="hidden lg:block py-[0.3vw] cursor-pointer relative group"
+              > 
                 <p className="text-[1vw] leading-none">{NAVBAR_CONTENT.calendar}</p>
                 <hr className="w-full bg-black border-none h-[0.1vw] absolute bottom-0 -left-full opacity-0 group-hover:left-0 group-hover:opacity-100 transition-all duration-300 ease-out pointer-events-none" />
               </button>
@@ -82,7 +85,12 @@ const Navbar = () => {
                 <hr className="hidden lg:block w-full bg-black border-none h-[0.1vw] absolute bottom-0 -left-full opacity-0 group-hover:left-0 group-hover:opacity-100 transition-all duration-300 ease-out pointer-events-none" />
               </button>
 
-              <button className="w-[6vw] lg:w-[1.5vw] cursor-pointer block lg:hidden"> {NAVBAR_CONTENT.icons.calendar} </button>
+              <button
+                onClick={() => setModalCalendarActive(true)}
+                className="w-[6vw] lg:w-[1.5vw] cursor-pointer block lg:hidden"
+              > 
+                {NAVBAR_CONTENT.icons.calendar} 
+              </button>
 
               <NavLink to='/cart' className="w-[6vw] lg:w-[1.5vw] cursor-pointer hidden lg:block py-[0.2vw] relative group">
                 <p className="absolute right-[-0.1vw] bottom-[0.3vw] w-[0.5vw] h-[0.5vw] text-center bg-red-600 text-white aspect-square rounded-full text-[10px] flex items-center justify-center"></p>

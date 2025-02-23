@@ -18,6 +18,7 @@ import Register from './pages/Register'
 import PasswordRecovery from './pages/PasswordRecovery'
 import TermsAndConditions from './pages/TermsAndConditions'
 import FiltersModal from './components/FiltersModal'
+import CalendarModal from './components/CalendarModal'
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
       <Navbar />
       <SidebarMenu />
       <SearchModal />
+      <CalendarModal />
       <FiltersModal />
 
       <Routes>

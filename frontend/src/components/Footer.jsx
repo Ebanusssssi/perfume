@@ -19,9 +19,9 @@ const Footer = () => {
           {/* Left Side */}
           <ul className="flex items-center gap-[4vw] lg:gap-[1.3vw]">
             <li className="text-[4vw] lg:text-[1vw] font-semibold">{FOOTER_CONTENT.socials.title}</li>
-            <li className="size-[3vw] lg:size-[1.5vw]"><a href="#">{FOOTER_CONTENT.socials.instagram}</a></li>
-            <li className="size-[3vw] lg:size-[1.5vw]"><a href="#">{FOOTER_CONTENT.socials.facebook}</a></li>
-            <li className="size-[3vw] lg:size-[1.5vw]"><a href="#">{FOOTER_CONTENT.socials.tiktok}</a></li>
+            <li className="size-[6vw] lg:size-[1.5vw]"><a href="#">{FOOTER_CONTENT.socials.instagram}</a></li>
+            <li className="size-[6vw] lg:size-[1.5vw]"><a href="#">{FOOTER_CONTENT.socials.facebook}</a></li>
+            <li className="size-[6vw] lg:size-[1.5vw]"><a href="#">{FOOTER_CONTENT.socials.tiktok}</a></li>
           </ul>
           {/* Right Side */}
           <Link to="/" className="font-semibold text-[10vw] lg:text-[2.5vw] tracking-normal h-full cursor-pointer">{FOOTER_CONTENT.logo}</Link>
@@ -39,7 +39,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Links */}
-      <ul className="w-full flex flex-col lg:flex-row justify-center items-start lg:items-center gap-[5vw] gap-[4vw] border-t border-b lg:border-b-0 border-t-slate-200 border-b-slate-200 py-[7vw] lg:py-[2.3vw]">
+      <ul className="w-full flex flex-col lg:flex-row justify-center items-start lg:items-center gap-[5vw] border-t border-b lg:border-b-0 border-t-slate-200 border-b-slate-200 py-[7vw] lg:py-[2.3vw]">
         {
           FOOTER_CONTENT.bottomLinks.map((link, index) => (
             <Link key={index} to="/" className="text-[5vw] lg:text-[1.2vw] font-semibold lg:font-medium">{link}</Link>
