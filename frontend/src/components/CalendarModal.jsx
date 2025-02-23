@@ -3,59 +3,15 @@ import { ShopContext } from "../context/ShopContext";
 import { Link } from "react-router-dom";
 import { PRODUCT_CARD } from "../assets/constants";
 
-import { v4 as uuidv4 } from "uuid";
-
 const CalendarModal = () => {
 
   const [sidebarProducts, setSidebarProducts] = useState([]);
-  const [isCalendarFull, setIsCalendarFull] = useState(false);
 
-  const { PRODUCTS, modalCalendarActive, setModalCalendarActive, calendarItems, setCalendarItems } = useContext(ShopContext);
+
+  const { PRODUCTS, modalCalendarActive, setModalCalendarActive, calendarItems, addToCalendar, removeFromCalendar, isCalendarFull, setIsCalendarFull } = useContext(ShopContext);
   
   // Заменить на настойщие вычисления месяцев на 24 мес вперед --------------------------------!-!-!-!-!-!-!
   const month = ["Jan 2025", "Feb 2025", "Mar 2025", "Apr 2025", "May 2025", "Jun 2025", "Jul 2025", "Aug 2025", "Sep 2025", "Okt 2025", "Nov 2025", "Dec 2025", "Jan 2026", "Feb 2026", "Mar 2026", "Apr 2026", "May 2026", "Jun 2026", "Jul 2026", "Aug 2026", "Sep 2026", "Okt 2026", "Nov 2026", "Dec 2026",]
-
-  
-
-  // Adding product to calendar
-  const addToCalendar = (item) => {
-    if (calendarItems.filter(item => item !== null).length === 24) {
-      setIsCalendarFull(true)
-      return
-    }
-
-    setCalendarItems((prevItems) => {
-      const newItems = [...prevItems];
-      const emptyIndex = newItems.findIndex((cell) => cell === null)
-
-      if (emptyIndex !== -1) {
-        newItems[emptyIndex] = { ...item, uniqueId: uuidv4() };
-      }
-
-      return newItems;
-    })
-  }
-
-  // Deleting product from calendar
-  const removeFromCalendar = (uniqueId) => {
-
-    setCalendarItems((prevItems) => {
-      if (!prevItems) return Array(24).fill(null);
-
-      const newItems = [...prevItems];
-      const indexToRemove = newItems.findIndex((item) => item?.uniqueId === uniqueId);
-
-      if (indexToRemove !== -1) {
-        newItems[indexToRemove] = null;
-      }
-
-      if (calendarItems.filter(item => item !== null).length !== 24) {
-        setIsCalendarFull(false)
-      }
-
-      return newItems
-    })
-  }
 
 
   // Getting 5 products for sidebar

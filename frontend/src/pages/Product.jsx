@@ -11,11 +11,13 @@ import Loader from "../components/Loader";
 
 const Product = () => {
   const { productId } = useParams();
-  const { PRODUCTS } = useContext(ShopContext);
+  const { PRODUCTS, addToCalendar, setModalCalendarActive } = useContext(ShopContext);
   const [productData, setProductData] = useState([]);
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
 
+
+  // Fetching Product Data
   const fetchProductData = async () => {
     PRODUCTS.map((item)=>{
       if (item._id === productId) {
@@ -33,7 +35,14 @@ const Product = () => {
   }, [productId, PRODUCTS])
 
 
-  
+  const addToCalendarHandler = (product) => {
+    addToCalendar(product);
+    setModalCalendarActive(true);
+  }
+
+
+
+  // Loader
   if (loading) {
     return (
       <Loader boxHeight={"screen"} boxWidth={"full"} loaderSize={"14"} />
@@ -84,12 +93,13 @@ const Product = () => {
           <p className="mt-[1.2vw] lg:mt-[0.5vw] text-[3vw] lg:text-[0.8vw] font-medium lg:font-normal">Eau de Parfum, Unisex</p>
           {/* Add To Calendar Button */}
           <button
+            onClick={() => addToCalendarHandler(productData)} 
             className="w-full font-normal lg:font-semibold text-[4vw] lg:text-[1vw] tracking-wide text-white bg-black border border-black hover:border-slate-200 
             px-[15vw] py-[5vw] my-[1vw] lg:px-[2.4vw] lg:py-[1.2vw] rounded-full 
             hover:text-black hover:bg-white hover:scale-105 transition-all duration-300 ease-in-out
             cursor-pointer"
           >
-            {PRODUCT_CONTENT.buttonText}
+            {PRODUCT_CONTENT.addToCalendar}
           </button>
           {/* All Details */}
           <div className="w-full h-fit bg-white rounded-[2.5vw] lg:rounded-[0.5vw]">

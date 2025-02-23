@@ -24,7 +24,7 @@ const RelatedProducts = ({ productData }) => {
           <div className="grid w-full h-fit grid-cols-2 lg:grid-cols-5 gap-[4.5vw] lg:gap-[2vw]">
             {
               relatedProducts.slice(0,5).map((product, index) => (
-                <ProductItem key={index} id={product._id} image={product.image[0]} title={product.title} brand={product.brand}/>
+                <ProductItem key={index} id={product._id} image={product.image[0]} title={product.title} brand={product.brand} product={product}/>
               ))
             }
           </div>

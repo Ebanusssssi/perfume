@@ -531,7 +531,7 @@ export const PRODUCT_CONTENT ={
     titleType: "Type",
     titleStyle: "Style",
     more: "Read more",
-    buttonText: "Add to calendar",
+    addToCalendar: "Add to calendar",
 
     indicators: {
         trailTitle: "Trail of trace",

@@ -50,7 +50,7 @@ const Products = () => {
         <div className={`${activeTabIndex === 0 ? "grid" : "hidden"} w-full h-fit grid-cols-2 lg:grid-cols-5 gap-[4.5vw] lg:gap-[2vw]`}>
           {
             premiumProducts.slice(0,10).map((product, index) => (
-              <ProductItem key={index} id={product._id} image={product.image[0]} title={product.title} brand={product.brand} />
+              <ProductItem key={index} id={product._id} image={product.image[0]} title={product.title} brand={product.brand} product={product}/>
             ))
           }
         </div>
@@ -59,7 +59,7 @@ const Products = () => {
         <div className={`${activeTabIndex === 1 ? "grid" : "hidden"} w-full h-fit lg:h-[45vw] grid-cols-2 lg:grid-cols-5 gap-[4.5vw] lg:gap-[2vw]`}>
           {
             nicheProducts.slice(0,10).map((product, index) => (
-              <ProductItem key={index} id={product._id} image={product.image[0]} title={product.title} brand={product.brand} />
+              <ProductItem key={index} id={product._id} image={product.image[0]} title={product.title} brand={product.brand} product={product}/>
             ))
           }
         </div>
@@ -68,7 +68,7 @@ const Products = () => {
         <div className={`${activeTabIndex === 2 ? "grid" : "hidden"} w-full h-fit lg:h-[45vw] grid-cols-2 lg:grid-cols-5 gap-[4.5vw] lg:gap-[2vw]`}>
           {
             cleanProducts.slice(0,10).map((product, index) => (
-              <ProductItem key={index} id={product._id} image={product.image[0]} title={product.title} brand={product.brand} />
+              <ProductItem key={index} id={product._id} image={product.image[0]} title={product.title} brand={product.brand} product={product}/>
             ))
           }
         </div>
