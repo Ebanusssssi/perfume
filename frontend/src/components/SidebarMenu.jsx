@@ -33,14 +33,14 @@ const SidebarMenu = () => {
         </div>
 
         <ul className="flex flex-col gap-[5vw] lg:gap-[2vw] text-[8vw] font-medium lg:text-[2vw] lg:font-medium">
-          <NavLink to="/login" className="relative group" onClick={() => setMenuActive(false)}>
+          <NavLink to="/register" className="relative group" onClick={() => setMenuActive(false)}>
             <p className="group-hover:-translate-y-2 transition-all duration-300 ease-out">{SIDEBAR_MENU.createAccount}</p>
             <hr className="w-full bg-black border-none h-[3px] absolute bottom-0 -left-full opacity-0 group-hover:left-0 group-hover:opacity-100 transition-all duration-300 ease-out pointer-events-none" />
           </NavLink>
-          <NavLink to="/quiz" className="relative group" onClick={() => setMenuActive(false)}>
+          {/* <NavLink to="/quiz" className="relative group" onClick={() => setMenuActive(false)}>
             <p className="group-hover:-translate-y-2 transition-all duration-300 ease-out">{SIDEBAR_MENU.quiz}</p>
             <hr className="w-full bg-black border-none h-[3px] absolute bottom-0 -left-full opacity-0 group-hover:left-0 group-hover:opacity-100 transition-all duration-300 ease-out pointer-events-none" />
-          </NavLink>
+          </NavLink> */}
           <NavLink to="/products" className="relative group" onClick={() => setMenuActive(false)}>
             <p className="group-hover:-translate-y-2 transition-all duration-300 ease-out">{SIDEBAR_MENU.allperfumes}</p>
             <hr className="w-full bg-black border-none h-[3px] absolute bottom-0 -left-full opacity-0 group-hover:left-0 group-hover:opacity-100 transition-all duration-300 ease-out pointer-events-none" />

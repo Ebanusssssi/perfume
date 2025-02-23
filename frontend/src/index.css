@@ -34,5 +34,16 @@ html {
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
   }
+
+  /* Custom scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 0.6rem;
+    background: rgba(0, 0, 0, 0.12);
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.12);
+  }
 }
 

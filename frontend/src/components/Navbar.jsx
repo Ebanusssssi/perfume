@@ -92,11 +92,11 @@ const Navbar = () => {
                 {NAVBAR_CONTENT.icons.calendar} 
               </button>
 
-              <NavLink to='/cart' className="w-[6vw] lg:w-[1.5vw] cursor-pointer hidden lg:block py-[0.2vw] relative group">
+              {/* <NavLink to='/cart' className="w-[6vw] lg:w-[1.5vw] cursor-pointer hidden lg:block py-[0.2vw] relative group">
                 <p className="absolute right-[-0.1vw] bottom-[0.3vw] w-[0.5vw] h-[0.5vw] text-center bg-red-600 text-white aspect-square rounded-full text-[10px] flex items-center justify-center"></p>
                 {NAVBAR_CONTENT.icons.cart}
                 <hr className="w-full bg-black border-none h-[0.1vw] absolute bottom-0 -left-full opacity-0 group-hover:left-0 group-hover:opacity-100 transition-all duration-300 ease-out pointer-events-none" />
-              </NavLink>
+              </NavLink> */}
 
               <NavLink 
                 to='/login' 

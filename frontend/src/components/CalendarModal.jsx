@@ -28,7 +28,7 @@ const CalendarModal = () => {
   return (
     // Dark Overlay Whole Screen
     <div
-      className={`max-h-screen w-full fixed inset-0 z-50 flex justify-end bg-black/40 
+      className={`max-h-screen w-full fixed inset-0 z-50 flex justify-end bg-black/40
       ${modalCalendarActive ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
       transition-all duration-300 ease-out`}
       onClick={() => setModalCalendarActive(false)}
@@ -41,7 +41,7 @@ const CalendarModal = () => {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Sidebar With Products */}
-        <div className="hidden lg:block w-1/3 h-full overflow-y-auto">
+        <div className="hidden lg:block w-1/3 h-full overflow-y-auto custom-scrollbar">
           <div className="grid grid-rows-5 grid-cols-1">
             {
               sidebarProducts.map((product, index) => (
@@ -84,7 +84,7 @@ const CalendarModal = () => {
           </header>
           
           {/* Content */}
-          <main className="flex-1 px-[8.5vw] lg:px-[4.5vw] py-[7vw] lg:py-[1.8vw] overflow-y-auto">
+          <main className="flex-1 px-[8.5vw] lg:px-[4.5vw] py-[7vw] lg:py-[1.8vw] overflow-y-auto custom-scrollbar">
             {isCalendarFull 
               ? 
                 <div onClick={() => setIsCalendarFull(false)} className="font-medium leading-none p-[3vw] lg:p-[1vw] mb-[3vw] lg:mb-[1vw] rounded-lg bg-red-100 lg:bg-transparent lg:hover:bg-red-100 cursor-pointer transition-colors ease-in-out">

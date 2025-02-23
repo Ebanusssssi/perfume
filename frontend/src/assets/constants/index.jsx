@@ -121,7 +121,32 @@ export const NAVBAR_CONTENT = {
 
 // FOOTER
 export const FOOTER_CONTENT = {
-    topLinks: ["Perfumes", "FAQs", "Delivery Information", "Inspiration", "Our story", "Careers"],
+    topLinks: [
+        {
+            title: "Perfumes",
+            link: "/products"
+        },
+        {
+            title: "FAQs",
+            link: "/"
+        },
+        {
+            title: "Delivery Information", 
+            link: "/"
+        },
+        {
+            title: "Inspiration", 
+            link: "/"
+        },
+        {
+            title: "Our story", 
+            link: "/"
+        },
+        {
+            title: "Careers",
+            link: "/"
+        }
+    ],
     socials: {
         title: "Follow us", 
         instagram: <FaInstagram className="w-full h-full object-cover text-gray-800" />, 
@@ -130,7 +155,24 @@ export const FOOTER_CONTENT = {
     },
     logo: "parfumado",
     paymentImages: [ideal, mastercard, visa, paypal],
-    bottomLinks: ["Cookie preferences", "Cookie statement", "Terms & conditions", "Privacy policy"],
+    bottomLinks: [
+        {
+            title: "Cookie preferences",
+            link: "/"
+        },
+        {
+            title: "Cookie statement",
+            link: "/"
+        },
+        {
+            title: "Terms & conditions", 
+            link: "/"
+        },
+        {
+            title: "Privacy policy", 
+            link: "/"
+        },
+    ],
 }
 
 // PRODUCT CARD
@@ -487,23 +529,23 @@ export const HOME_SOCIAL = {
     socialPosts: [
         {
             image: social1,
-            href: "#"
+            href: "https://www.instagram.com"
         },
         {
             image: social2,
-            href: "#"
+            href: "https://www.instagram.com"
         },
         {
             image: social3,
-            href: "#"
+            href: "https://www.instagram.com"
         },
         {
             image: social4,
-            href: "#"
+            href: "https://www.instagram.com"
         },
         {
             image: social5,
-            href: "#"
+            href: "https://www.instagram.com"
         },
     ],
 }

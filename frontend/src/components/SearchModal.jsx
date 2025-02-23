@@ -78,7 +78,7 @@ const SearchModal = () => {
         </header>
         
         {/* Content */}
-        <main className="flex-1 overflow-y-auto">
+        <main className="flex-1 overflow-y-auto custom-scrollbar">
         {
           filterProducts.length > 0 
           ?
