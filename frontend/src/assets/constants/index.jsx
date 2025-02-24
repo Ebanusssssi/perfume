@@ -588,6 +588,78 @@ export const PRODUCT_CONTENT ={
 
 }
 
+// BRANDS
+export const BRANDS = {
+    title: "Brands",
+    brands: [
+        "A.N Other", "Ann Ringstrand", "Bentley", "Coach", "Dr Sebagh", "Eutopie", "Karl Lagerfeld", "Laura Biagiotti", "Memoize London", 
+        "Moschino", "Parfumado x Fred van Leer", "Reminiscence", "Sentier", "The Perfumer's Story by Azzi", "Zadig & Voltaire", "Abel",
+        "Abercrombie and Fitch", "Acqua Alpes", "AER", "Æther", "Affinessence", "Alex Simone", "Angel Schlesser", "Annick Goutal", "Ariana Grande", 
+        "Armaf", "Atelier Materi", "Atelier Oblique", "Atelier Vesper", "AVANT", "Azzaro", "BALR", "biehl. parfumkunstwerke", "Billie Eilish", 
+        "Blend Oud", "Bon Parfumeur", "Boucheron", "Carolina Herrera", "Cartier", "Chopard", "Clean", "Comptoir Sud Pacifique", "Contradictions in ILK", 
+        "Costume National", "CRA-YON", "Czech & Speake", "D'Orsay", "Dali Haute Parfumerie", "Daniel Josier", "DKNY", "Dsquared", "Elementals", 
+        "Elie Saab", "Élisire", "EMIL ÉLISE", "EPC", "Ermenegildo Zegna", "Escentric Molecules", "Etat Libre d'Orange", "Evody", "Extrait D'Atelier",
+        "Floris London", "Fugazzi", "Gallivant", "Genyum", "HAYARI PARIS", "Hermès", "Histoires de Parfums", "Ilia", "Il Profvmo", "Ineke", "Issey Miyake", 
+        "Jacques Zolty", "Jean Paul Gaultier", "Jean-Charles Brosseau", "Juicy Couture", "Jimmy Choo", "Kiton", "Korres", "L'Adoné", "L'Occitane en Provence", 
+        "L'Artisan Parfumeur", "L'Orchestre Parfum", "Lacoste", "Lalique", "Lanvin", "Le Galion", "Les Bains Guerbois", "Lesquendieu", "Linari", "Lolita Lempicka",
+        "M. Micallef", "MADE in PIGALLE", "Maya Njie", "Marie-Stella-Maris", "Michael Kors", "Miller et Bertaux", "Miller Harris", "Mirko Buffini", 
+        "MISSONI", "Mmoire", "Molton Brown", "Moncler", "Mont Blanc", "NAÏF", "Narciso Rodriguez", "Neela Vermeire Créations", "Nina Ricci", 
+        "Oilily", "Olfactive Studio", "Oscar de la Renta", "Paco Rabanne", "Parfumado", "Parfumado x Jade Anna", "Parfumado x Les Jumelles", "Parfums CIRO", 
+        "Penhaligon's", "Pepe Jeans", "pH fragrances", "Philip B", "Philipp Plein", "Prescription", "Rituals", "Robert Piguet", "Roberto Cavalli", 
+        "Rochas", "Room 1015", "ROOS & ROOS", "Roquebrun", "Salvatore Ferragamo", "Sarah Jessica Parker", "Serge Lutens", "SG79 | STHLM", "Shiseido", 
+        "Sisley", "Sol de Janeiro", "State Of Mind - État d'esprit", "stellair.", "The BrowGal", "The Different Company", "Tiziana Terenzi", 
+        "Tommy Hilfiger", "Trussardi", "Ulrich Lang New York", "Valentino", "Van Cleef & Arpels", "Van Gils", "Versace", "YVRA",
+    ]
+}
+
+// GENDERS
+export const GENDERS = {
+    title: "Gender",
+    genders: [
+        "Female", "Male", "Unisex"
+    ]
+}
+
+// CLASSES
+export const CLASSES = {
+    title: "Class",
+    classes: [
+        "Eau de Cologne", "Eau de Parfum", "Eau de Toilette", "Extrait de Parfum"
+    ]
+}
+
+// NOTES
+export const NOTES = {
+    title: "Fragnance notes",
+    notes: [
+        "Amber", "Animal", "Aquatic", "Aromatic", "Almond", "Aldehydic", "Balsamic", "Cacao", "Caramel", "Cherry", "Cinnamon",
+        "Citrus", "Coconut", "Coffee", "Dry woods", "Earthy", "Exotic notes", "Fig", "Floral exotic", "Floral notes", "Fresh exotic", 
+        "Fresh notes", "Fruity", "Green", "Hazelnut", "Honey", "Jasmin", "Leather", "Maritime", "Milky", "Mossy woods", "Musk", "Oudh",
+        "Ozonic", "Patchouli", "Powdery", "Roses", "Rum", "Sand", "Sandalwood", "Smoky", "Soft exotic", "Soft floral", "Sweet", "Tabacco",
+        "Tropical", "Tuberose", "Vanilla", "Warm spicy", "White floral", "Woody exotic", "Woody notes", "Woody spicy", "Yellow floral",
+    ]
+}
+
+// FAMILIES
+export const FAMILIES = {
+    title: "Fragnance family",
+    families: [
+        "Exotic", "Floral", "Fresh", "Gourmand", "Woody",
+    ]
+}
+
+// STYLES
+export const STYLES = {
+    title: "Style",
+    styles: [
+        "Adventurous", "Classic", "Sexy", "Sporty", "Trendy",
+    ]
+}
+
+
+
+
+// PRODUCTS INFO
 export const PRODUCTS = [
 
     // PREMIUM

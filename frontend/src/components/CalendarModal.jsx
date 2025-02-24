@@ -2,16 +2,17 @@ import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import { Link } from "react-router-dom";
 import { PRODUCT_CARD } from "../assets/constants";
+import { getNext24Month } from "../utils/utils";
+
 
 const CalendarModal = () => {
-
+  // Dynamic list of next 24 month + year
+  const [months, setMonths] = useState([]);
+  // Sidebar products
   const [sidebarProducts, setSidebarProducts] = useState([]);
-
-
+  // Context variables
   const { PRODUCTS, modalCalendarActive, setModalCalendarActive, calendarItems, addToCalendar, removeFromCalendar, isCalendarFull, setIsCalendarFull } = useContext(ShopContext);
   
-  // Заменить на настойщие вычисления месяцев на 24 мес вперед --------------------------------!-!-!-!-!-!-!
-  const month = ["Jan 2025", "Feb 2025", "Mar 2025", "Apr 2025", "May 2025", "Jun 2025", "Jul 2025", "Aug 2025", "Sep 2025", "Okt 2025", "Nov 2025", "Dec 2025", "Jan 2026", "Feb 2026", "Mar 2026", "Apr 2026", "May 2026", "Jun 2026", "Jul 2026", "Aug 2026", "Sep 2026", "Okt 2026", "Nov 2026", "Dec 2026",]
 
 
   // Getting 5 products for sidebar
@@ -19,10 +20,15 @@ const CalendarModal = () => {
     setSidebarProducts(PRODUCTS.slice(15, 20))
   }, [PRODUCTS])
 
-  // For Debugging
+  // Getting next 24 months
   useEffect(() => {
-    console.log(calendarItems);
-  }, [calendarItems])
+    setMonths(getNext24Month())
+  }, [])
+
+  // For Debugging
+  // useEffect(() => {
+  //   console.log(calendarItems);
+  // }, [calendarItems])
   
 
   return (
@@ -102,7 +108,7 @@ const CalendarModal = () => {
                     { !product 
                       ? (
                           <>
-                            <p className="absolute top-[0.1vw] left-1/2 -translate-x-1/2 text-[2.2vw] lg:text-[0.5vw] text-black/25 font-bold tracking-wide">{month[index]}</p>
+                            <p className="absolute top-[0.1vw] left-1/2 -translate-x-1/2 text-[2.2vw] lg:text-[0.5vw] text-black/25 font-bold tracking-wide">{months[index]}</p>
                             <Link 
                               onClick={() => setModalCalendarActive(false)} 
                               to="/products" 
@@ -115,7 +121,7 @@ const CalendarModal = () => {
                         )
                       : (
                           <>
-                            <p className="absolute top-[0.1vw] left-1/2 -translate-x-1/2 text-[2.2vw] lg:text-[0.5vw] text-black/25 font-bold tracking-wide">{month[index]}</p>
+                            <p className="absolute top-[0.1vw] left-1/2 -translate-x-1/2 text-[2.2vw] lg:text-[0.5vw] text-black/25 font-bold tracking-wide">{months[index]}</p>
                             <Link
                               onClick={() => setModalCalendarActive(false)}
                               to={`/product/${product._id}`} 

@@ -1,7 +1,7 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { PRODUCTS } from "../assets/constants";
 
-import { v4 as uuidv4 } from "uuid";
 
 export const ShopContext = createContext();
 
@@ -14,6 +14,15 @@ const ShopContextProvider = (props) => {
 
   const [calendarItems, setCalendarItems] = useState(Array(24).fill(null));
   const [isCalendarFull, setIsCalendarFull] = useState(false);
+
+
+  // Getting calendar data from localstorage
+  useEffect(() => {
+    const storedItems = JSON.parse(localStorage.getItem('calendarItems'));
+    if (storedItems) {
+      setCalendarItems(storedItems);
+    }
+  }, [])
 
   // Adding product to calendar
   const addToCalendar = (item) => {
@@ -29,6 +38,8 @@ const ShopContextProvider = (props) => {
       if (emptyIndex !== -1) {
         newItems[emptyIndex] = { ...item, uniqueId: uuidv4() };
       }
+       
+      localStorage.setItem('calendarItems', JSON.stringify(newItems));
 
       return newItems;
     })
@@ -47,9 +58,11 @@ const ShopContextProvider = (props) => {
         newItems[indexToRemove] = null;
       }
 
-      if (calendarItems.filter(item => item !== null).length !== 24) {
+      if (newItems.filter(item => item !== null).length !== 24) {
         setIsCalendarFull(false)
       }
+
+      localStorage.setItem('calendarItems', JSON.stringify(newItems));
 
       return newItems
     })
