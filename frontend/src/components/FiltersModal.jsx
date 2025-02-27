@@ -1,11 +1,40 @@
-import { useContext } from "react";
-import { BRANDS, CLASSES, FAMILIES, GENDERS, NOTES, SIDEBAR_MENU, STYLES } from "../assets/constants"
+import { useContext, useState } from "react";
+import { FILTERS, SIDEBAR_MENU } from "../assets/constants"
 import { ShopContext } from "../context/ShopContext";
 
 const FiltersModal = () => {
 
-  const { modalFiltersActive, setModalFiltersActive } = useContext(ShopContext);
+  const { 
 
+    filterProducts,
+    modalFiltersActive, setModalFiltersActive, 
+    selectedBrands, setSelectedBrands, handleBrandChange, 
+    selectedGender, setSelectedGender,  handleGenderChange,
+    selectedType, setSelectedType, handleTypeChange,
+    selectedNotes, setSelectedNotes, handleNotesChange,
+    selectedFamilies, setSelectedFamilies, handleFamiliesChange,
+    selectedStyles, setSelectedStyles, handleStylesChange,
+
+  } = useContext(ShopContext);
+  const [openFiltersOption, setOpenFiltersOption] = useState({});
+
+  const handleFiltersClear = () => {
+    setSelectedBrands([]);
+    setSelectedGender([]);
+    setSelectedType([]);
+    setSelectedNotes([]);
+    setSelectedFamilies([]);
+    setSelectedStyles([]);
+  }
+
+
+  // Toggle Visibility of Filter Options
+  const toggleFilterOption = (filterName) => {
+    setOpenFiltersOption((prev) => ({
+      ...prev,
+      [filterName]: !prev[filterName],
+    }));
+  }
   
 
   return (
@@ -23,6 +52,7 @@ const FiltersModal = () => {
         transition-all duration-500 ease-out overflow-y-auto custom-scrollbar`}
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Top */}
         <div className="w-full flex items-center justify-between">
           <h2 className="text-[7vw] lg:text-[2.5vw] font-medium tracking-wide">Filters</h2>
           <button
@@ -31,166 +61,216 @@ const FiltersModal = () => {
             {SIDEBAR_MENU.icons.close}
           </button>
         </div>
-
+        
+        {/* Filters */}
         <div className="">
-          {/* Brands Section */}
+
+          {/* Brand */}
           <div className="w-full h-fit">
             {/* Title */}
-            <div className="px-[2vw] py-[10vw] lg:px-[0.5vw] lg:py-[3vw] bg-white hover:bg-gray-100 cursor-pointer transition-colors ease-in-out border-y border-y-gray-200">
-              <h3 className="text-[3.5vw] lg:text-[1vw] font-medium leading-none tracking-wide">{BRANDS.title}</h3>
-            </div>
-            {/* Brands */}
-            <div className="max-h-[120vw] lg:max-h-[20vw] overflow-y-auto custom-scrollbar">
-              <div className="flex flex-col pt-[8vw] lg:pt-[2vw]">
-                {
-                  BRANDS.brands.map((brand, index) => (
-                    <div key={index} className="flex flex-col items-start">
-                      <label className="w-full flex items-center gap-[2vw] lg:gap-[0.5vw] px-[2vw] lg:px-[0.5vw] py-[3.5vw] lg:py-[0.9vw] cursor-pointer">
-                        <input
-                          type="checkbox"
-                          className="accent-gray-800"
-                        />
-                        <p className="text-[3.3vw] lg:text-[1vw] select-none">{brand}</p>
-                      </label>
-                    </div>
-                  ))
-                }
+            <button onClick={() => toggleFilterOption("Brand")} className="text-left w-full px-[2vw] py-[10vw] lg:px-[0.5vw] lg:py-[3vw] bg-white hover:bg-gray-100 cursor-pointer transition-colors ease-in-out border-b border-b-gray-200">
+              <h3 className="text-[3.5vw] lg:text-[1vw] font-medium leading-none tracking-wide">Brand</h3>
+            </button>
+            {/* Options */}
+            {openFiltersOption["Brand"] && (
+              <div className="max-h-[120vw] lg:max-h-[20vw] overflow-y-auto custom-scrollbar">
+                <div className="flex flex-col pt-[8vw] lg:pt-[2vw]">
+                  {
+                    FILTERS[0].options.map((option, index) => (
+                      <div key={index} className="flex flex-col items-start">
+                        <label className="w-full flex items-center gap-[2vw] lg:gap-[0.5vw] px-[2vw] lg:px-[0.5vw] py-[3.5vw] lg:py-[0.9vw] cursor-pointer">
+                          <input
+                            onChange={() => handleBrandChange(option)}
+                            checked={selectedBrands.includes(option)}
+                            type="checkbox"
+                            className="accent-gray-800"
+                          />
+                          <p className="text-[3.3vw] lg:text-[1vw] select-none">{option}</p>
+                        </label>
+                      </div>
+                    ))
+                  }
+                </div>
               </div>
-            </div>
+              )
+            }
           </div>
 
-          {/* Genders Section */}
+          {/* Gender */}
           <div className="w-full h-fit">
             {/* Title */}
-            <div className="px-[2vw] py-[10vw] lg:px-[0.5vw] lg:py-[3vw] bg-white hover:bg-gray-100 cursor-pointer transition-colors ease-in-out border-y border-y-gray-200">
-              <h3 className="text-[3.5vw] lg:text-[1vw] font-medium leading-none tracking-wide">{GENDERS.title}</h3>
-            </div>
-            {/* Gender */}
-            <div className="max-h-[120vw] lg:max-h-[20vw] overflow-y-auto custom-scrollbar">
-              <div className="flex flex-col pt-[8vw] lg:pt-[2vw]">
-                {
-                  GENDERS.genders.map((gender, index) => (
-                    <div key={index} className="flex flex-col items-start">
-                      <label className="w-full flex items-center gap-[2vw] lg:gap-[0.5vw] px-[2vw] lg:px-[0.5vw] py-[3.5vw] lg:py-[0.9vw] cursor-pointer">
-                        <input
-                          type="checkbox"
-                          className="accent-gray-800"
-                        />
-                        <p className="text-[3.3vw] lg:text-[1vw] select-none">{gender}</p>
-                      </label>
-                    </div>
-                  ))
-                }
+            <button onClick={() => toggleFilterOption("Gender")} className="text-left w-full px-[2vw] py-[10vw] lg:px-[0.5vw] lg:py-[3vw] bg-white hover:bg-gray-100 cursor-pointer transition-colors ease-in-out border-b border-b-gray-200">
+              <h3 className="text-[3.5vw] lg:text-[1vw] font-medium leading-none tracking-wide">Gender</h3>
+            </button>
+            {/* Options */}
+            {openFiltersOption["Gender"] && (
+              <div className="max-h-[120vw] lg:max-h-[20vw] overflow-y-auto custom-scrollbar">
+                <div className="flex flex-col pt-[8vw] lg:pt-[2vw]">
+                  {
+                    FILTERS[1].options.map((option, index) => (
+                      <div key={index} className="flex flex-col items-start">
+                        <label className="w-full flex items-center gap-[2vw] lg:gap-[0.5vw] px-[2vw] lg:px-[0.5vw] py-[3.5vw] lg:py-[0.9vw] cursor-pointer">
+                          <input
+                            onChange={() => handleGenderChange(option)}
+                            checked={selectedGender.includes(option)}
+                            type="checkbox"
+                            className="accent-gray-800"
+                          />
+                          <p className="text-[3.3vw] lg:text-[1vw] select-none">{option}</p>
+                        </label>
+                      </div>
+                    ))
+                  }
+                </div>
               </div>
-            </div>
+              )
+            }
           </div>
 
-          {/* Classes Section */}
+          {/* Class */}
           <div className="w-full h-fit">
             {/* Title */}
-            <div className="px-[2vw] py-[10vw] lg:px-[0.5vw] lg:py-[3vw] bg-white hover:bg-gray-100 cursor-pointer transition-colors ease-in-out border-y border-y-gray-200">
-              <h3 className="text-[3.5vw] lg:text-[1vw] font-medium leading-none tracking-wide">{CLASSES.title}</h3>
-            </div>
-            {/* Class */}
-            <div className="max-h-[120vw] lg:max-h-[20vw] overflow-y-auto custom-scrollbar">
-              <div className="flex flex-col pt-[8vw] lg:pt-[2vw]">
-                {
-                  CLASSES.classes.map((item, index) => (
-                    <div key={index} className="flex flex-col items-start">
-                      <label className="w-full flex items-center gap-[2vw] lg:gap-[0.5vw] px-[2vw] lg:px-[0.5vw] py-[3.5vw] lg:py-[0.9vw] cursor-pointer">
-                        <input
-                          type="checkbox"
-                          className="accent-gray-800"
-                        />
-                        <p className="text-[3.3vw] lg:text-[1vw] select-none">{item}</p>
-                      </label>
-                    </div>
-                  ))
-                }
+            <button onClick={() => toggleFilterOption("Class")} className="text-left w-full px-[2vw] py-[10vw] lg:px-[0.5vw] lg:py-[3vw] bg-white hover:bg-gray-100 cursor-pointer transition-colors ease-in-out border-b border-b-gray-200">
+              <h3 className="text-[3.5vw] lg:text-[1vw] font-medium leading-none tracking-wide">Class</h3>
+            </button>
+            {/* Options */}
+            {openFiltersOption["Class"] && (
+              <div className="max-h-[120vw] lg:max-h-[20vw] overflow-y-auto custom-scrollbar">
+                <div className="flex flex-col pt-[8vw] lg:pt-[2vw]">
+                  {
+                    FILTERS[2].options.map((option, index) => (
+                      <div key={index} className="flex flex-col items-start">
+                        <label className="w-full flex items-center gap-[2vw] lg:gap-[0.5vw] px-[2vw] lg:px-[0.5vw] py-[3.5vw] lg:py-[0.9vw] cursor-pointer">
+                          <input
+                            onChange={() => handleTypeChange(option)}
+                            checked={selectedType.includes(option)}
+                            type="checkbox"
+                            className="accent-gray-800"
+                          />
+                          <p className="text-[3.3vw] lg:text-[1vw] select-none">{option}</p>
+                        </label>
+                      </div>
+                    ))
+                  }
+                </div>
               </div>
-            </div>
+              )
+            }
           </div>
 
-          {/* Fragnance Notes Section */}
+          {/* Notes */}
           <div className="w-full h-fit">
             {/* Title */}
-            <div className="px-[2vw] py-[10vw] lg:px-[0.5vw] lg:py-[3vw] bg-white hover:bg-gray-100 cursor-pointer transition-colors ease-in-out border-y border-y-gray-200">
-              <h3 className="text-[3.5vw] lg:text-[1vw] font-medium leading-none tracking-wide">{NOTES.title}</h3>
-            </div>
-            {/* Notes */}
-            <div className="max-h-[120vw] lg:max-h-[20vw] overflow-y-auto custom-scrollbar">
-              <div className="flex flex-col pt-[8vw] lg:pt-[2vw]">
-                {
-                  NOTES.notes.map((note, index) => (
-                    <div key={index} className="flex flex-col items-start">
-                      <label className="w-full flex items-center gap-[2vw] lg:gap-[0.5vw] px-[2vw] lg:px-[0.5vw] py-[3.5vw] lg:py-[0.9vw] cursor-pointer">
-                        <input
-                          type="checkbox"
-                          className="accent-gray-800"
-                        />
-                        <p className="text-[3.3vw] lg:text-[1vw] select-none">{note}</p>
-                      </label>
-                    </div>
-                  ))
-                }
+            <button onClick={() => toggleFilterOption("Notes")} className="text-left w-full px-[2vw] py-[10vw] lg:px-[0.5vw] lg:py-[3vw] bg-white hover:bg-gray-100 cursor-pointer transition-colors ease-in-out border-b border-b-gray-200">
+              <h3 className="text-[3.5vw] lg:text-[1vw] font-medium leading-none tracking-wide">Fragnance notes</h3>
+            </button>
+            {/* Options */}
+            {openFiltersOption["Notes"] && (
+              <div className="max-h-[120vw] lg:max-h-[20vw] overflow-y-auto custom-scrollbar">
+                <div className="flex flex-col pt-[8vw] lg:pt-[2vw]">
+                  {
+                    FILTERS[3].options.map((option, index) => (
+                      <div key={index} className="flex flex-col items-start">
+                        <label className="w-full flex items-center gap-[2vw] lg:gap-[0.5vw] px-[2vw] lg:px-[0.5vw] py-[3.5vw] lg:py-[0.9vw] cursor-pointer">
+                          <input
+                            onChange={() => handleNotesChange(option)}
+                            checked={selectedNotes.includes(option)}
+                            type="checkbox"
+                            className="accent-gray-800"
+                          />
+                          <p className="text-[3.3vw] lg:text-[1vw] select-none">{option}</p>
+                        </label>
+                      </div>
+                    ))
+                  }
+                </div>
               </div>
-            </div>
+              )
+            }
           </div>
 
-          {/* Fragnance Families Section */}
+          {/* Family */}
           <div className="w-full h-fit">
             {/* Title */}
-            <div className="px-[2vw] py-[10vw] lg:px-[0.5vw] lg:py-[3vw] bg-white hover:bg-gray-100 cursor-pointer transition-colors ease-in-out border-y border-y-gray-200">
-              <h3 className="text-[3.5vw] lg:text-[1vw] font-medium leading-none tracking-wide">{FAMILIES.title}</h3>
-            </div>
-            {/* Families */}
-            <div className="max-h-[120vw] lg:max-h-[20vw] overflow-y-auto custom-scrollbar">
-              <div className="flex flex-col pt-[8vw] lg:pt-[2vw]">
-                {
-                  FAMILIES.families.map((family, index) => (
-                    <div key={index} className="flex flex-col items-start">
-                      <label className="w-full flex items-center gap-[2vw] lg:gap-[0.5vw] px-[2vw] lg:px-[0.5vw] py-[3.5vw] lg:py-[0.9vw] cursor-pointer">
-                        <input
-                          type="checkbox"
-                          className="accent-gray-800"
-                        />
-                        <p className="text-[3.3vw] lg:text-[1vw] select-none">{family}</p>
-                      </label>
-                    </div>
-                  ))
-                }
+            <button onClick={() => toggleFilterOption("Family")} className="text-left w-full px-[2vw] py-[10vw] lg:px-[0.5vw] lg:py-[3vw] bg-white hover:bg-gray-100 cursor-pointer transition-colors ease-in-out border-b border-b-gray-200">
+              <h3 className="text-[3.5vw] lg:text-[1vw] font-medium leading-none tracking-wide">Fragnance family</h3>
+            </button>
+            {/* Options */}
+            {openFiltersOption["Family"] && (
+              <div className="max-h-[120vw] lg:max-h-[20vw] overflow-y-auto custom-scrollbar">
+                <div className="flex flex-col pt-[8vw] lg:pt-[2vw]">
+                  {
+                    FILTERS[4].options.map((option, index) => (
+                      <div key={index} className="flex flex-col items-start">
+                        <label className="w-full flex items-center gap-[2vw] lg:gap-[0.5vw] px-[2vw] lg:px-[0.5vw] py-[3.5vw] lg:py-[0.9vw] cursor-pointer">
+                          <input
+                            onChange={() => handleFamiliesChange(option)}
+                            checked={selectedFamilies.includes(option)}
+                            type="checkbox"
+                            className="accent-gray-800"
+                          />
+                          <p className="text-[3.3vw] lg:text-[1vw] select-none">{option}</p>
+                        </label>
+                      </div>
+                    ))
+                  }
+                </div>
               </div>
-            </div>
+              )
+            }
           </div>
 
-          {/* Styles Section */}
+          {/* Style */}
           <div className="w-full h-fit">
             {/* Title */}
-            <div className="px-[2vw] py-[10vw] lg:px-[0.5vw] lg:py-[3vw] bg-white hover:bg-gray-100 cursor-pointer transition-colors ease-in-out border-y border-y-gray-200">
-              <h3 className="text-[3.5vw] lg:text-[1vw] font-medium leading-none tracking-wide">{STYLES.title}</h3>
-            </div>
-            {/* Styles */}
-            <div className="max-h-[120vw] lg:max-h-[20vw] overflow-y-auto custom-scrollbar">
-              <div className="flex flex-col pt-[8vw] lg:pt-[2vw]">
-                {
-                  STYLES.styles.map((style, index) => (
-                    <div key={index} className="flex flex-col items-start">
-                      <label className="w-full flex items-center gap-[2vw] lg:gap-[0.5vw] px-[2vw] lg:px-[0.5vw] py-[3.5vw] lg:py-[0.9vw] cursor-pointer">
-                        <input
-                          type="checkbox"
-                          className="accent-gray-800"
-                        />
-                        <p className="text-[3.3vw] lg:text-[1vw] select-none">{style}</p>
-                      </label>
-                    </div>
-                  ))
-                }
+            <button onClick={() => toggleFilterOption("Style")} className="text-left w-full px-[2vw] py-[10vw] lg:px-[0.5vw] lg:py-[3vw] bg-white hover:bg-gray-100 cursor-pointer transition-colors ease-in-out border-b border-b-gray-200">
+              <h3 className="text-[3.5vw] lg:text-[1vw] font-medium leading-none tracking-wide">Style</h3>
+            </button>
+            {/* Options */}
+            {openFiltersOption["Style"] && (
+              <div className="max-h-[120vw] lg:max-h-[20vw] overflow-y-auto custom-scrollbar">
+                <div className="flex flex-col pt-[8vw] lg:pt-[2vw]">
+                  {
+                    FILTERS[5].options.map((option, index) => (
+                      <div key={index} className="flex flex-col items-start">
+                        <label className="w-full flex items-center gap-[2vw] lg:gap-[0.5vw] px-[2vw] lg:px-[0.5vw] py-[3.5vw] lg:py-[0.9vw] cursor-pointer">
+                          <input
+                            onChange={() => handleStylesChange(option)}
+                            checked={selectedStyles.includes(option)}
+                            type="checkbox"
+                            className="accent-gray-800"
+                          />
+                          <p className="text-[3.3vw] lg:text-[1vw] select-none">{option}</p>
+                        </label>
+                      </div>
+                    ))
+                  }
+                </div>
               </div>
-            </div>
+              )
+            }
           </div>
 
         </div>
 
+        {/* Bottom */}
+        <div className="w-full flex flex-col items-center justify-center gap-[5vw] lg:gap-[1vw] mt-[6vw] lg:mt-[2vw]">
+          <button
+            onClick={() => setModalFiltersActive(false)}
+            className="w-full lg:w-fit font-semibold text-[3.8vw] lg:text-[1vw] tracking-wide border border-slate-200 px-[12vw] py-[5.5vw] lg:px-[3vw] lg:py-[1.5vw] rounded-full 
+            bg-black hover:bg-white hover:text-black text-white hover:scale-105 transition-all duration-300 ease-in-out
+            cursor-pointer"
+          >
+            Show {filterProducts.length} results
+          </button>
+
+          <button
+            onClick={() => handleFiltersClear()}
+            className="w-full lg:w-fit text-[4vw] lg:text-[1.2vw] py-[3vw] lg:py-[0.2vw] tracking-wide font-medium border-b border-b-transparent hover:border-b-black transition-colors ease-in-out"
+          >
+            Clear filters
+          </button>
+        </div>
 
       </div>
     </div>
@@ -198,3 +278,41 @@ const FiltersModal = () => {
 }
 
 export default FiltersModal
+
+
+
+
+
+
+
+// {
+//   FILTERS.map((filter, index) => (
+//     <div key={index} className="w-full h-fit">
+
+//       <button onClick={() => toggleFilterOption(filter.title)} className="text-left w-full px-[2vw] py-[10vw] lg:px-[0.5vw] lg:py-[3vw] bg-white hover:bg-gray-100 cursor-pointer transition-colors ease-in-out border-b border-b-gray-200">
+//         <h3 className="text-[3.5vw] lg:text-[1vw] font-medium leading-none tracking-wide">{filter.title}</h3>
+//       </button>
+
+//       {openFiltersOption[filter.title] && (
+//         <div className="max-h-[120vw] lg:max-h-[20vw] overflow-y-auto custom-scrollbar">
+//           <div className="flex flex-col pt-[8vw] lg:pt-[2vw]">
+//             {
+//               filter.options.map((option, index) => (
+//                 <div key={index} className="flex flex-col items-start">
+//                   <label className="w-full flex items-center gap-[2vw] lg:gap-[0.5vw] px-[2vw] lg:px-[0.5vw] py-[3.5vw] lg:py-[0.9vw] cursor-pointer">
+//                     <input
+//                       type="checkbox"
+//                       className="accent-gray-800"
+//                     />
+//                     <p className="text-[3.3vw] lg:text-[1vw] select-none">{option}</p>
+//                   </label>
+//                 </div>
+//               ))
+//             }
+//           </div>
+//         </div>
+//         )
+//       }
+//     </div>
+//   ))
+// }

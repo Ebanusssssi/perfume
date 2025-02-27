@@ -1,37 +1,35 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { ShopContext } from "../context/ShopContext";
 import ProductItem from "../components/ProductItem";
 import { PRODUCTS_CONTENT } from "../assets/constants";
 
 const Products = () => {
-  const { PRODUCTS, setModalFiltersActive } = useContext(ShopContext);
-  const [searchValue, setSearchValue] = useState("");
-  const [filterProducts, setFilterProducts] = useState([]);
-  const [option, setOption] = useState(null);
+  const {
+
+    filterProducts, 
+    setModalFiltersActive, 
+    searchValue, setSearchValue, 
+    option, setOption, 
+    selectedBrands, handleBrandChange,
+    selectedGender, handleGenderChange,
+    selectedType, handleTypeChange,
+    selectedNotes, handleNotesChange,
+    selectedFamilies, handleFamiliesChange,
+    selectedStyles, handleStylesChange,
   
+  } = useContext(ShopContext);
+
   // Toggle Perfume Options (Filter)
   const toggleOption = (option) => {
-    setOption(option);
+    setOption(option); 
   }
 
-  // Setting Product List Depends on Chosen Option
-  const applyOption = () => {
-    let productsCopy = PRODUCTS.slice();
-    if (option) {
-      productsCopy = productsCopy.filter(item => item.category === option);
-    }
-    if (searchValue.length > 0) {
-      productsCopy = productsCopy.filter(item => item.title.toLowerCase().includes(searchValue.toLowerCase()) || item.brand.toLowerCase().includes(searchValue.toLowerCase()));
-    }
-    setFilterProducts(productsCopy)
-  }
-
-  // Calling Apply Option Function When Option Changed
   useEffect(() => {
-    applyOption();
-  }, [option, searchValue])
-
+    console.log(selectedBrands);
+    
+  }, [selectedBrands])
   
+
   return (
     <div className="w-full h-fit px-[4.7vw] pb-[4.5vw] pt-[28.5vw] lg:pb-[3vw] lg:pt-[10vw]">
       {/* Title */}
@@ -74,26 +72,90 @@ const Products = () => {
             }
           </div>
           {/* Picked Option */}
-         { 
-          option &&
-          <div 
-            className="max-w-full lg:max-w-[30%] h-fit flex items-center justify-center flex-wrap gap-[2.5vw] lg:gap-[0.8vw]">
-
-            {
-              [1].map((index) => (
+          <div className="w-full lg:w-[50%] h-fit flex items-center justify-center flex-wrap gap-[2.5vw] lg:gap-[0.8vw]">
+            { option &&
+              <div 
+              onClick={() => setOption(null)}
+              className="min-w-fit flex items-center gap-[1.1vw] lg:gap-[0.3vw] text-white text-[2.5vw] lg:text-[0.7vw] lg:font-light uppercase leading-loose lg:leading-none bg-black px-[2.5vw] py-0 lg:px-[0.8vw] lg:py-[0.3vw] rounded-full cursor-pointer"
+              >
+                <span className="">{option}</span>
+                <div className="">{PRODUCTS_CONTENT.icons.close}</div>
+              </div>
+            }
+            { selectedBrands &&
+              selectedBrands.map((brand, index) => (
                 <div 
                   key={index}
-                  onClick={() => setOption(null)} 
+                  onClick={() => handleBrandChange(brand)} 
                   className="min-w-fit flex items-center gap-[1.1vw] lg:gap-[0.3vw] text-white text-[2.5vw] lg:text-[0.7vw] lg:font-light uppercase leading-loose lg:leading-none bg-black px-[2.5vw] py-0 lg:px-[0.8vw] lg:py-[0.3vw] rounded-full cursor-pointer"
                 >
-                  <span className="">{option}</span>
+                  <span className="">{brand}</span>
+                  <div className="">{PRODUCTS_CONTENT.icons.close}</div>
+                </div>
+              ))
+            }
+            { selectedGender &&
+              selectedGender.map((gender, index) => (
+                <div 
+                  key={index}
+                  onClick={() => handleGenderChange(gender)} 
+                  className="min-w-fit flex items-center gap-[1.1vw] lg:gap-[0.3vw] text-white text-[2.5vw] lg:text-[0.7vw] lg:font-light uppercase leading-loose lg:leading-none bg-black px-[2.5vw] py-0 lg:px-[0.8vw] lg:py-[0.3vw] rounded-full cursor-pointer"
+                >
+                  <span className="">{gender}</span>
+                  <div className="">{PRODUCTS_CONTENT.icons.close}</div>
+                </div>
+              ))
+            }
+            { selectedType &&
+              selectedType.map((type, index) => (
+                <div 
+                  key={index}
+                  onClick={() => handleTypeChange(type)} 
+                  className="min-w-fit flex items-center gap-[1.1vw] lg:gap-[0.3vw] text-white text-[2.5vw] lg:text-[0.7vw] lg:font-light uppercase leading-loose lg:leading-none bg-black px-[2.5vw] py-0 lg:px-[0.8vw] lg:py-[0.3vw] rounded-full cursor-pointer"
+                >
+                  <span className="">{type}</span>
+                  <div className="">{PRODUCTS_CONTENT.icons.close}</div>
+                </div>
+              ))
+            }
+            { selectedNotes &&
+              selectedNotes.map((notes, index) => (
+                <div 
+                  key={index}
+                  onClick={() => handleNotesChange(notes)} 
+                  className="min-w-fit flex items-center gap-[1.1vw] lg:gap-[0.3vw] text-white text-[2.5vw] lg:text-[0.7vw] lg:font-light uppercase leading-loose lg:leading-none bg-black px-[2.5vw] py-0 lg:px-[0.8vw] lg:py-[0.3vw] rounded-full cursor-pointer"
+                >
+                  <span className="">{notes}</span>
+                  <div className="">{PRODUCTS_CONTENT.icons.close}</div>
+                </div>
+              ))
+            }
+            { selectedFamilies &&
+              selectedFamilies.map((family, index) => (
+                <div 
+                  key={index}
+                  onClick={() => handleFamiliesChange(family)} 
+                  className="min-w-fit flex items-center gap-[1.1vw] lg:gap-[0.3vw] text-white text-[2.5vw] lg:text-[0.7vw] lg:font-light uppercase leading-loose lg:leading-none bg-black px-[2.5vw] py-0 lg:px-[0.8vw] lg:py-[0.3vw] rounded-full cursor-pointer"
+                >
+                  <span className="">{family}</span>
+                  <div className="">{PRODUCTS_CONTENT.icons.close}</div>
+                </div>
+              ))
+            }
+            { selectedStyles &&
+              selectedStyles.map((style, index) => (
+                <div 
+                  key={index}
+                  onClick={() => handleStylesChange(style)} 
+                  className="min-w-fit flex items-center gap-[1.1vw] lg:gap-[0.3vw] text-white text-[2.5vw] lg:text-[0.7vw] lg:font-light uppercase leading-loose lg:leading-none bg-black px-[2.5vw] py-0 lg:px-[0.8vw] lg:py-[0.3vw] rounded-full cursor-pointer"
+                >
+                  <span className="">{style}</span>
                   <div className="">{PRODUCTS_CONTENT.icons.close}</div>
                 </div>
               ))
             }
             
           </div>
-         }
         </div>
 
         {/* Filters Button */}

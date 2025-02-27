@@ -142,47 +142,6 @@ const CalendarModal = () => {
                         )
                     }
                   </div>
-
-
-
-
-                  
-                  // !product
-                  // ? 
-                  //   (
-                  //     <div key={index} className="min-h-[15vw] flex items-center justify-center border-[0.35vw] border-gray-100 relative">
-                  //       <p className="absolute top-[0.1vw] left-1/2 -translate-x-1/2 text-[0.5vw] text-black/25 font-bold tracking-wide">Apr 2025</p>
-                  //       <Link 
-                  //         onClick={() => setModalCalendarActive(false)} 
-                  //         to="/products" 
-                  //         className="text-[1vw] font-bold leading-none size-[3vw] rounded-full 
-                  //         flex items-center justify-center bg-transparent hover:bg-gray-100 transition-colors duration-200 ease-in-out"
-                  //       >
-                  //         +
-                  //       </Link>
-                  //     </div>
-                  //   )
-                  // : 
-                  //   (
-                  //     <div key={index} className="min-h-[15vw] flex items-center justify-center border-[0.35vw] border-gray-100 relative">
-                  //       <p className="absolute top-[0.1vw] left-1/2 -translate-x-1/2 text-[0.5vw] text-black/25 font-bold tracking-wide">Mar 2025</p>
-                  //       <Link
-                  //         to={`/product/${product._id}`} 
-                  //         className="w-full h-full flex flex-col items-center py-[2vw] bg-[#F6F5F1] "
-                  //       >
-                  //         <div className="w-[8vw] mb-[1vw]">
-                  //           <img src={product.image} alt="Product image" className="h-full w-full object-cover object-center" />
-                  //         </div>
-                  //         <h3 className="max-w-[80%] lg:max-w-[90%] text-[3.5vw] lg:text-[0.8vw] font-medium truncate">{product.title}</h3>
-                  //         <p className="max-w-[80%] lg:max-w-[90%] text-[3.2vw] lg:text-[0.7vw] font-normal truncate">{product.brand}</p>
-                  //       </Link>
-                  //       <button 
-                  //         onClick={() => removeFromCalendar(product.uniqueId)} 
-                  //         className="size-[8.5vw] lg:size-[2.2vw] justify-center items-center border border-transparent bg-white hover:border-gray-200 transition-all duration-200 ease-in-out rounded-full text-[4.5vw] lg:text-[1.5vw] text-gray-800 leading-none flex absolute right-[1.5vw] lg:right-[0.5vw] top-[1vw] lg:top-[0.5vw]">
-                  //         <div className="size-[3.7vw] lg:size-[1.5vw]">-</div>
-                  //       </button>
-                  //     </div>
-                  //   )
                 ))
               }
             </div>

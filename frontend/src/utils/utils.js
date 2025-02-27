@@ -18,3 +18,12 @@ export const getNext24Month = () => {
   }
   return months;
 }
+
+// Debouncer (to add in the future)
+export const debounce = (func, delay) => {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func(...args), delay);
+  }
+}
