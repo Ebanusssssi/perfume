@@ -106,7 +106,7 @@ import { LuPlus } from "react-icons/lu";
 // NAVBAR
 export const NAVBAR_CONTENT = {
   menu: "Menu",
-  logo: "parfumado",
+  logo: "FUME",
   calendar: "My calendar",
   cart: "Cart",
   auth: "Sign in",
@@ -153,7 +153,7 @@ export const FOOTER_CONTENT = {
         facebook: <FaSquareFacebook className="w-full h-full object-cover text-gray-800" />, 
         tiktok: <AiFillTikTok className="w-full h-full object-cover text-gray-800" />, 
     },
-    logo: "parfumado",
+    logo: "FUME",
     paymentImages: [ideal, mastercard, visa, paypal],
     bottomLinks: [
         {

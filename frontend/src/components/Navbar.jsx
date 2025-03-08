@@ -63,7 +63,7 @@ const Navbar = () => {
           </li>
 
           {/* Middle Logo */}
-          <NavLink to='/' className="font-semibold text-[6vw] lg:text-[1.5vw] tracking-normal h-full cursor-pointer">{NAVBAR_CONTENT.logo}</NavLink>
+          <NavLink to='/' className="font-black text-[6vw] lg:text-[2vw] tracking-normal h-full cursor-pointer">{NAVBAR_CONTENT.logo}</NavLink>
 
           {/* Right Side */}
           <li className="lg:flex-1">

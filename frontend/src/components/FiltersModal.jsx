@@ -25,6 +25,7 @@ const FiltersModal = () => {
     setSelectedNotes([]);
     setSelectedFamilies([]);
     setSelectedStyles([]);
+    
     setModalFiltersActive(false);
   }
 

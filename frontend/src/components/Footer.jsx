@@ -24,7 +24,7 @@ const Footer = () => {
             <li className="size-[6vw] lg:size-[1.5vw]"><a href="https://www.tiktok.com" target="_blank" >{FOOTER_CONTENT.socials.tiktok}</a></li>
           </ul>
           {/* Right Side */}
-          <Link to="/" className="font-semibold text-[10vw] lg:text-[2.5vw] tracking-normal h-full cursor-pointer">{FOOTER_CONTENT.logo}</Link>
+          <Link to="/" className="font-black text-[10vw] lg:text-[2.5vw] tracking-normal h-full cursor-pointer">{FOOTER_CONTENT.logo}</Link>
         </div>
         {/* Payment Methods */}
         <div className="w-full h-fit flex justify-center lg:justify-end py-[1.5vw]">
